@@ -1,26 +1,8 @@
 .container {
-  padding: 50px;
+    display: flex;
+    flex-direction: row;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding: 5px;
-}
-
-.title {
-  font-weight: 500;
-}
-
-.value {
-
-}
-
-.red {
-  color: red;
-}
-
-.green {
-  color: green;
+.innerContainer {
+    width: 100%;
 }

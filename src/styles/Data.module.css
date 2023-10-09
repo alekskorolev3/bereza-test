@@ -1,0 +1,27 @@
+.container {
+    padding: 45px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px;
+}
+
+.title {
+    color: #5D676F;
+    font-weight: 600;
+}
+
+.value {
+    color: #5D676F;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}

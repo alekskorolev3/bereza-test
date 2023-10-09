@@ -1,0 +1,25 @@
+.container {
+    cursor: pointer;
+    display: flex;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 14px;
+    border: 1px solid #5D676F;
+    background: #FFF;
+}
+
+.text {
+    color: #5D676F;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+}
+
+.indicator {
+    width: 22px;
+    height: 15px;
+    border-radius: 14px;
+    background: #6FDC01;
+}
