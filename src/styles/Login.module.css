@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F3F4FA;
+    height: 100vh;
+}
+
+.card {
+    display: flex;
+    padding: 30px 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+}
+
+.title {
+    color: #222222;
+    font-size: 30px;
+    font-weight: 500;
+    align-self: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputGroup label {
+    color: #222222;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.inputGroup input {
+    border-radius: 12px;
+    background: rgba(149, 149, 157, 0.1);
+    height: 54px;
+    padding-block: 0;
+    padding-inline: 0;
+    margin: 0;
+    border: none;
+    min-width: 430px;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.submitButton {
+    display: flex;
+    width: 120px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 28px;
+    border: 2px solid #222222;
+    background-color: #FFFFFF;
+
+    color: #222222;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+
+    align-self: center;
+    transition: all 0.3s;
+}
+
+.submitButton:hover {
+    background-color: #222222;
+    color: #FFFFFF;
+}

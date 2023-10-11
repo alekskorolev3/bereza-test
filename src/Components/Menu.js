@@ -10,7 +10,7 @@ const Menu = () => {
                 </div>
 
                 <ul className={styles.menuWrapper}>
-                    <NavLink to="/" className={({ isActive, isPending }) =>
+                    <NavLink to="/data" className={({ isActive, isPending }) =>
                         isActive ? styles.active : ""
                     }>
                         <li className={styles.menuItem}>

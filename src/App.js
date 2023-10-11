@@ -1,34 +1,22 @@
 import './App.css';
-import Header from "./Components/Header";
-import Data from "./Components/Data";
-import Menu from "./Components/Menu";
-import {
-    Route, Routes
-} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
+import Login from "./Components/Login";
+import Layout from "./Components/Layout";
 import TechSchema from "./Components/TechSchema";
+import React from "react";
+import Data from "./Components/Data";
 
 function App() {
 
 
     return (
-        <div className="container">
-            <Menu/>
-            <div className="innerContainer">
-                <Header/>
-                <Routes>
-                    <Route
-                        path="/"
-                        exact={true}
-                        element={<Data />}
-                    />
-
-                    <Route
-                        path="/schema"
-                        element={<TechSchema />}
-                    />
-                </Routes>
-            </div>
-        </div>
+        <Routes>
+            <Route path="/" exact={true} element={<Layout/>}>
+                <Route path="/data" element={<Data />}/>
+                <Route path="/schema" element={<TechSchema />}/>
+            </Route>
+            <Route path="/login" element={<Login/>}/>
+        </Routes>
     )
 }
 
