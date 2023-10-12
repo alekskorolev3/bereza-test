@@ -5,9 +5,9 @@ import Layout from "./Components/Layout";
 import TechSchema from "./Components/TechSchema";
 import React from "react";
 import Data from "./Components/Data";
+import Register from "./Components/Register";
 
 function App() {
-
 
     return (
         <Routes>
@@ -16,7 +16,7 @@ function App() {
                 <Route path="/schema" element={<TechSchema />}/>
             </Route>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/register" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
         </Routes>
     )
 }
