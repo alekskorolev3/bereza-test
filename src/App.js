@@ -16,6 +16,7 @@ function App() {
                 <Route path="/schema" element={<TechSchema />}/>
             </Route>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Login/>}/>
         </Routes>
     )
 }

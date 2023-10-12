@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import styles from "../styles/Data.module.css"
 const W3CWebSocket = require('websocket').w3cwebsocket;
 
-const client = new W3CWebSocket('ws://192.168.2.120:8000/ws/socket-server/');
+const client = new W3CWebSocket('ws://127.0.0.1:8000/ws/socket-server/');
 
 function Data() {
     const [messages, setMessages] = useState([]);
