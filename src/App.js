@@ -6,14 +6,23 @@ import TechSchema from "./Components/TechSchema";
 import React from "react";
 import Data from "./Components/Data";
 import Register from "./Components/Register";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 function App() {
 
     return (
         <Routes>
-            <Route path="/" exact={true} element={<Layout/>}>
-                <Route path="/data" element={<Data />}/>
-                <Route path="/schema" element={<TechSchema />}/>
+            <Route path="/" exact={true} element={
+                <Layout/>
+            }>
+                <Route path="/data" index element={
+                    <Data/>
+                }/>
+                <Route path="/schema" element={
+                    <ProtectedRoute>
+                        <TechSchema />
+                    </ProtectedRoute>
+                }/>
             </Route>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>

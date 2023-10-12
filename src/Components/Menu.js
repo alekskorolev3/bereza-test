@@ -1,16 +1,35 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from "../styles/Menu.module.css"
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import {useRecoilValue} from "recoil";
+import {authAtom} from "../state/auth";
+import {useUserActions} from "../actions/user.actions";
+
 const Menu = () => {
+
+    const auth = useRecoilValue(authAtom);
+    const userActions = useUserActions();
+
+    const [date, setDate] = useState(new Date());
+
+    useEffect(() => {
+        let timer = setInterval(() => setDate(new Date()), 1000)
+        return function cleanup() {
+            clearInterval(timer)
+        }
+
+    });
+
     return (
         <section className={styles.menu}>
             <div className={styles.menuContainer}>
                 <div className={styles.menuItem + " " + styles.nohover} style={{height: "60px"}}>
-                    <span className={styles.menuText}>20 сентября 2023 12:24:20</span>
+                    <span className={styles.menuText}>{date.toLocaleDateString()}</span>
+                    <span className={styles.menuText}>{date.toLocaleTimeString()}</span>
                 </div>
 
                 <ul className={styles.menuWrapper}>
-                    <NavLink to="/data" className={({ isActive, isPending }) =>
+                    <NavLink to="/data" className={({isActive, isPending}) =>
                         isActive ? styles.active : ""
                     }>
                         <li className={styles.menuItem}>
@@ -19,7 +38,7 @@ const Menu = () => {
                         </li>
                     </NavLink>
 
-                    <NavLink to="/schema" className={({ isActive, isPending }) =>
+                    <NavLink to="/schema" className={({isActive, isPending}) =>
                         isActive ? styles.active : ""
                     }>
                         <li className={styles.menuItem}>
@@ -48,11 +67,17 @@ const Menu = () => {
                         <img src="/chart.svg" alt="chart"/>
                         <span className={styles.menuText}>Отчеты и статистика</span>
                     </li>
+
+                    <li className={styles.menuItem}>
+                        <img src="/profile.svg" alt="profile"/>
+                        <span className={styles.menuText}>Пользователь</span>
+                    </li>
                 </ul>
             </div>
 
-            <div className={styles.menuItem} style={{borderBottom: "unset", borderTop: "1px solid #7698AA"}}>
-                <img src="/logout.svg" alt="logout"/>
+            <div className={styles.menuItem} style={{borderBottom: "unset", borderTop: "1px solid #7698AA"}}
+                 onClick={userActions.logout}>
+                {/*<img src="/logout.svg" alt="logout"/>*/}
                 <span className={styles.menuText}>Выход</span>
             </div>
         </section>

@@ -58,8 +58,9 @@
 
 .submitButton {
     display: flex;
-    min-width: 120px;
+    min-width: 180px;
     height: 44px;
+    padding: 0 15px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -74,9 +75,31 @@
 
     align-self: center;
     transition: all 0.3s;
+
+    cursor: pointer;
 }
 
 .submitButton:hover {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+.submitButton:focus {
+    background-color: #222222;
+    color: #FFFFFF;
+}
+
+.registerContainer {
+    color: #95959D;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    align-self: center;
+}
+
+.registerContainer a {
+    color: #00A3E7;
+    text-decoration: none;
 }
