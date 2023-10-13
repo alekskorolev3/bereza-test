@@ -32,6 +32,24 @@
     background: #1F4458;
     border-bottom: 1px solid #7698AA;
     transition: 0.3s all;
+    position: relative;
+}
+
+.submenuContainer {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.submenuContainer li {
+    border-left: 1px solid #7698AA;
+}
+
+.menuItem:hover .submenuContainer{
+    display: block;
 }
 
 .menuWrapper a {
@@ -92,3 +110,5 @@
 .nohover:hover .menuText{
     color: #7698AA;
 }
+
+

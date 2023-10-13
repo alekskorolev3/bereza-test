@@ -7,6 +7,7 @@ import React from "react";
 import Data from "./Components/Data";
 import Register from "./Components/Register";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import ProjectParams from "./Components/ProjectParams";
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
                     <ProtectedRoute>
                         <TechSchema />
                     </ProtectedRoute>
+                }/>
+                <Route path="/projectParams" element={
+                    <ProjectParams />
                 }/>
             </Route>
             <Route path="/login" element={<Login/>}/>

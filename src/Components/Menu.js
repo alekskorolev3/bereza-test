@@ -56,6 +56,22 @@ const Menu = () => {
                     <li className={styles.menuItem}>
                         <img src="/data-2.svg" alt="data"/>
                         <span className={styles.menuText}>Лабораторные данные</span>
+
+                        <div className={styles.submenuContainer}>
+                            <NavLink to="/projectParams">
+                                <li className={styles.menuItem}>
+                                    <img src="/setting-3.svg" alt="setting3"/>
+                                    <span className={styles.menuText}>Проектные параметры</span>
+                                </li>
+                            </NavLink>
+
+                            <NavLink to="/labData">
+                                <li className={styles.menuItem}>
+                                    <img src="/setting-4.svg" alt="setting4"/>
+                                    <span className={styles.menuText}>Лабораторные данные</span>
+                                </li>
+                            </NavLink>
+                        </div>
                     </li>
 
                     <li className={styles.menuItem}>
