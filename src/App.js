@@ -8,6 +8,7 @@ import Data from "./Components/Data";
 import Register from "./Components/Register";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import ProjectParams from "./Components/ProjectParams";
+import LabData from "./Components/LabData";
 
 function App() {
 
@@ -26,6 +27,9 @@ function App() {
                 }/>
                 <Route path="/projectParams" element={
                     <ProjectParams />
+                }/>
+                <Route path="/labData" element={
+                    <LabData />
                 }/>
             </Route>
             <Route path="/login" element={<Login/>}/>
