@@ -39,7 +39,6 @@ const Login = () => {
         return userActions.login(username, password)
             .then((data) => {
                 if (!data) {
-                    console.log(data)
                     error()
                 } else {
                     navigate("/data")
