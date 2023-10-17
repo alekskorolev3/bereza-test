@@ -20,7 +20,6 @@ function useUserActions() {
     function login(username, password) {
         return fetchWrapper.post(`http://192.168.1.136:8000/login`, {username, password})
             .then(user => {
-                console.log(user)
                 localStorage.setItem('user', JSON.stringify(user));
                 setAuth(user);
                 return user
@@ -42,6 +41,7 @@ function useUserActions() {
         return fetchWrapper.post(`http://192.168.1.136:8000/register`, {username, password})
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
+                return user
             })
             .catch((err) => console.log(err))
     }

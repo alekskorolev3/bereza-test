@@ -6,7 +6,7 @@ import {Navigate} from "react-router";
 const ProtectedRoute = ({children}) => {
     const auth = useRecoilValue(authAtom);
 
-    if (!auth) {
+    if (!auth?.authenticatedUser) {
         return <Navigate to="/login" replace />;
     }
 

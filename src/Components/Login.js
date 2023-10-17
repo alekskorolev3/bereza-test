@@ -22,12 +22,12 @@ const Login = () => {
     const error = () => {
         messageApi.open({
             type: 'error',
-            content: 'Возникла ошибка подключения к серверу',
+            content: 'Возникла ошибка. Проверьте корректность логина и пароля, либо проверьте подключение к сети',
         });
     };
 
     useEffect(() => {
-        if (auth !== null) {
+        if (!auth && auth?.hasOwnProperty("authenticatedUser")) {
             navigate("/data")
         }
     }, [])
@@ -38,7 +38,7 @@ const Login = () => {
 
         return userActions.login(username, password)
             .then((data) => {
-                if (!auth) {
+                if (!data) {
                     console.log(data)
                     error()
                 } else {

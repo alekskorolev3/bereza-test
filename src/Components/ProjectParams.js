@@ -1,6 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from "../styles/ProjectParams.module.css"
 import {Select, Form, InputNumber, Button, Table, ConfigProvider, Modal} from "antd";
+import {useRecoilValue} from "recoil";
+import {authAtom} from "../state/auth";
+import {useUserActions} from "../actions/user.actions";
+import {useProjectActions} from "../actions/project.actions";
+import {projectAtom} from "../state/project";
 
 const ProjectParams = () => {
 
@@ -85,23 +90,34 @@ const ProjectParams = () => {
         },
     ];
 
+    const project = useRecoilValue(projectAtom);
+    const projectActions = useProjectActions();
     const [data, setData] = useState(initialData)
     const [values, setValues] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [form] = Form.useForm();
 
-    React.useEffect(() => {
-        form.setFieldsValue({
-            bbo: '1',
-            tankHeight: 3,
-            tankSchema: "смес.",
-            tankArea: 117,
-            tankVolume: 456,
-            nitrificationVolume: 25,
-            denitrificationVolume: 12,
-            anaerobicsVolume: 257
-        });
-    }, []);
+    useEffect(() => {
+        projectActions.getAllParams()
+            .then((data) => {
+                console.log(data)
+
+                const {data_bbo_1} = data
+
+                form.setFieldsValue({
+                    bbo_id: parseInt(data_bbo_1.bbo_id),
+                    tankHeight: data_bbo_1.tankHeight,
+                    tankSchema: data_bbo_1.tankSchema,
+                    tankArea: data_bbo_1.tankArea,
+                    tankVolume: data_bbo_1.tankVolume,
+                    nitrificationVolume: data_bbo_1.nitrificationVolume,
+                    denitrificationVolume: data_bbo_1.denitrificationVolume,
+                    anaerobicsVolume: data_bbo_1.anaerobicsVolume
+                });
+                
+            })
+    }, [])
+
 
     const handleOk = () => {
         setIsModalOpen(false);
@@ -118,13 +134,21 @@ const ProjectParams = () => {
     };
 
     const handleForm = () => {
-        const list = Object.entries(values)
+        // const list = Object.entries(values)
+        //
+        // const newData = data.map((row,i) => {
+        //     return {...row, [list[0][1]]: list[i + 1][1]}
+        // })
+        //
+        // setData(newData)
 
-        const newData = data.map((row,i) => {
-            return {...row, [list[0][1]]: list[i + 1][1]}
-        })
-
-        setData(newData)
+        return projectActions.postProjectParams(values)
+            .then((data) => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            });
     }
 
     return (
@@ -138,12 +162,12 @@ const ProjectParams = () => {
                     }
                 }}>
                     <Form className={styles.form} onFinish={onFinish} form={form}>
-                        <Form.Item label="Номер ББО: " className={styles.formItem} name="bbo" rules={[{ required: true}]}>
+                        <Form.Item label="Номер ББО: " className={styles.formItem} name="bbo_id" rules={[{ required: true}]}>
                             <Select>
-                                <Select.Option value="1">1</Select.Option>
-                                <Select.Option value="2">2</Select.Option>
-                                <Select.Option value="3">3</Select.Option>
-                                <Select.Option value="4">4</Select.Option>
+                                <Select.Option value={1}>1</Select.Option>
+                                <Select.Option value={2}>2</Select.Option>
+                                <Select.Option value={3}>3</Select.Option>
+                                <Select.Option value={4}>4</Select.Option>
                             </Select>
                         </Form.Item>
 

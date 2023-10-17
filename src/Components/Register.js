@@ -37,11 +37,12 @@ const Register = () => {
         setLoading(true)
 
         return userActions.register(username, password)
-            .then(() => {
-                if (!auth) {
+            .then((data) => {
+                if (!data) {
                     error()
                 }
                 else {
+                    setLoading(true)
                     navigate("/login")
                 }
             })
