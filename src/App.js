@@ -15,7 +15,9 @@ function App() {
     return (
         <Routes>
             <Route path="/" exact={true} element={
-                <Layout/>
+                <ProtectedRoute>
+                    <Layout/>
+                </ProtectedRoute>
             }>
                 <Route path="/data" index element={
                     <Data/>

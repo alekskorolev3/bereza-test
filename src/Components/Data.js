@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import styles from "../styles/Data.module.css"
 const W3CWebSocket = require('websocket').w3cwebsocket;
 
-const client = new W3CWebSocket('ws://127.0.0.1:8000/ws/socket-server/');
+const client = new W3CWebSocket('ws://192.168.1.136:8000/ws/socket-server/');
 
 function Data() {
     const [messages, setMessages] = useState([]);
@@ -41,7 +41,7 @@ function Data() {
 
             <div className={styles.row}>
                 <span className={styles.title}>Время:</span>
-                <span className={styles.value}>{[...messages].pop()?.data?.time ? new Date([...messages].pop()?.data?.time).toLocaleString() : "Нет данных"}</span>
+                <span className={styles.value}>{[...messages].pop()?.data?.time ? [...messages].pop()?.data?.time : "Нет данных"}</span>
             </div>
         </div>
     )
