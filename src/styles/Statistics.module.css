@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+}
+
+.title {
+    color: #5D676F;
+    font-weight: 600;
+    align-self: center;
+}

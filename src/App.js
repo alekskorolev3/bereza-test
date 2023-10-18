@@ -9,6 +9,8 @@ import Register from "./Components/Register";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import ProjectParams from "./Components/ProjectParams";
 import LabData from "./Components/LabData";
+import User from "./Components/User";
+import Statistics from "./Components/Statistics";
 
 function App() {
 
@@ -28,10 +30,24 @@ function App() {
                     </ProtectedRoute>
                 }/>
                 <Route path="/projectParams" element={
-                    <ProjectParams />
+                    <ProtectedRoute>
+                        <ProjectParams />
+                    </ProtectedRoute>
                 }/>
                 <Route path="/labData" element={
-                    <LabData />
+                    <ProtectedRoute>
+                        <LabData />
+                    </ProtectedRoute>
+                }/>
+                <Route path="/statistics" element={
+                    <ProtectedRoute>
+                        <Statistics />
+                    </ProtectedRoute>
+                }/>
+                <Route path="/user" element={
+                    <ProtectedRoute>
+                        <User />
+                    </ProtectedRoute>
                 }/>
             </Route>
             <Route path="/login" element={<Login/>}/>

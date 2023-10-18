@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+}
+
+.list {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.title {
+    color: #5D676F;
+    font-weight: 600;
+    align-self: center;
+}
+
+.actionButton {
+    color: #1677ff;
+    cursor: pointer;
+}
+
+.deleteButton {
+    color: red;
+    cursor: pointer;
+}

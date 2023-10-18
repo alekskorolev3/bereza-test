@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import styles from "../styles/Menu.module.css"
 import {NavLink} from "react-router-dom";
-import {useRecoilValue} from "recoil";
-import {authAtom} from "../state/auth";
 import {useUserActions} from "../actions/user.actions";
 
 const Menu = () => {
 
-    const auth = useRecoilValue(authAtom);
     const userActions = useUserActions();
 
     const [date, setDate] = useState(new Date());
@@ -29,7 +26,7 @@ const Menu = () => {
                 </div>
 
                 <ul className={styles.menuWrapper}>
-                    <NavLink to="/data" className={({isActive, isPending}) =>
+                    <NavLink to="/data" className={({isActive}) =>
                         isActive ? styles.active : ""
                     }>
                         <li className={styles.menuItem}>
@@ -38,7 +35,7 @@ const Menu = () => {
                         </li>
                     </NavLink>
 
-                    <NavLink to="/schema" className={({isActive, isPending}) =>
+                    <NavLink to="/schema" className={({isActive}) =>
                         isActive ? styles.active : ""
                     }>
                         <li className={styles.menuItem}>
@@ -79,15 +76,23 @@ const Menu = () => {
                         <span className={styles.menuText}>Прогнозирование</span>
                     </li>
 
-                    <li className={styles.menuItem}>
-                        <img src="/chart.svg" alt="chart"/>
-                        <span className={styles.menuText}>Отчеты и статистика</span>
-                    </li>
+                    <NavLink to="/statistics" className={({isActive}) =>
+                        isActive ? styles.active : ""
+                    }>
+                        <li className={styles.menuItem}>
+                            <img src="/chart.svg" alt="chart"/>
+                            <span className={styles.menuText}>Отчеты и статистика</span>
+                        </li>
+                    </NavLink>
 
-                    <li className={styles.menuItem}>
-                        <img src="/profile.svg" alt="profile"/>
-                        <span className={styles.menuText}>Пользователь</span>
-                    </li>
+                    <NavLink to="/user" className={({isActive}) =>
+                        isActive ? styles.active : ""
+                    }>
+                        <li className={styles.menuItem}>
+                            <img src="/profile.svg" alt="profile"/>
+                            <span className={styles.menuText}>Пользователь</span>
+                        </li>
+                    </NavLink>
                 </ul>
             </div>
 
