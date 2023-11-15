@@ -20,6 +20,7 @@ const ProjectParams = () => {
                 form.setFieldsValue(convertFormValues(data));
                 setTableData(convertTableData(data))
             })
+            .catch(err => console.log(err))
     }, [])
 
 
@@ -28,6 +29,7 @@ const ProjectParams = () => {
             .then((data) => {
                 setTableData(convertTableData(data))
             })
+            .catch(err => console.log(err))
     }
 
     return (

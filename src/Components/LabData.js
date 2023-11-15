@@ -22,6 +22,7 @@ const LabData = () => {
                 form.setFieldsValue(convertFormValues(data))
                 setTableData(convertTableData(data))
             })
+            .catch(err => console.log(err))
     }, []);
 
 
@@ -30,6 +31,7 @@ const LabData = () => {
             .then((data) => {
                 setTableData(convertTableData(data))
             })
+            .catch(err => console.log(err))
     }
 
     return (

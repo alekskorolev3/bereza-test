@@ -29,6 +29,15 @@
 
 .logoWrapper {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
+}
+
+.logoWrapper img {
+    cursor: pointer;
+}
+
+.notifyLogo:hover {
+    transition: 0.3s all;
+    filter: invert(78%) sepia(53%) saturate(1821%) hue-rotate(170deg) brightness(103%) contrast(101%);
 }

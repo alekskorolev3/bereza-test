@@ -25,16 +25,6 @@ function useProjectActions() {
             })
     }
 
-    // async function getProjectParams(id) {
-    //     return await fetchWrapper.get(`http://192.168.1.136:8000/api/get_proj_value`, {bbo_id: id})
-    //         .then(params => {
-    //             return params
-    //         })
-    //         .catch((error) => {
-    //             console.log(error)
-    //         })
-    // }
-
     function getAllParams() {
         return fetchWrapper.get(`http://192.168.1.136:8000/api/get_all_proj_value`)
             .then(params => {
