@@ -2,10 +2,10 @@ import { atom } from 'recoil';
 import {recoilPersist} from "recoil-persist";
 const { persistAtom } = recoilPersist()
 
-const messagesAtom = atom({
-    key: 'messagesMain',
+const moduleAtom = atom({
+    key: 'module',
     default: [],
     effects_UNSTABLE: [persistAtom],
 });
 
-export { messagesAtom };
+export { moduleAtom };

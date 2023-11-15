@@ -48,6 +48,15 @@ const Menu = () => {
                     <li className={styles.menuItem}>
                         <img src="/setting-2.svg" alt="setting"/>
                         <span className={styles.menuText}>Режим работы</span>
+
+                        <div className={styles.submenuContainer}>
+                            <NavLink to="/managementAirflow">
+                                <div className={styles.menuItem}>
+                                    <img src="/setting-3.svg" alt="setting3"/>
+                                    <span className={styles.menuText}>Модуль управления затворами на воздух</span>
+                                </div>
+                            </NavLink>
+                        </div>
                     </li>
 
                     <li className={styles.menuItem}>

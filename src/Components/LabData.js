@@ -57,7 +57,7 @@ const LabData = () => {
 
                         <Form.Item label="Доза ила по массе в аэротенке: " className={styles.formItem}>
                             <Form.Item name="doseFromWeight" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={50}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 г/дм³
@@ -66,7 +66,7 @@ const LabData = () => {
 
                         <Form.Item label="Доза ила по объему: " className={styles.formItem}>
                             <Form.Item name="doseFromVolume" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1100}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 см³/дм³
@@ -75,7 +75,7 @@ const LabData = () => {
 
                         <Form.Item label="Зольность ила: " className={styles.formItem}>
                             <Form.Item name="ashPercent" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber max={100}/>
+                                <InputNumber min={0} max={70}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 %
@@ -84,7 +84,7 @@ const LabData = () => {
 
                         <Form.Item label="Концентрация избыточного активного ила: " className={styles.formItem}>
                             <Form.Item name="concentrationExcessActive" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={60}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 г/дм³
@@ -93,7 +93,7 @@ const LabData = () => {
 
                         <Form.Item label="Содержание взвешенных веществ в исходной воде: " className={styles.formItem} >
                             <Form.Item name="suspendSubstSourceWater" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -102,7 +102,7 @@ const LabData = () => {
 
                         <Form.Item label="Содержание взвешенных веществ после п/о" className={styles.formItem}>
                             <Form.Item name="suspendSubstAfterSettling" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -111,7 +111,7 @@ const LabData = () => {
 
                         <Form.Item label="Содержание взвешенных веществ в очищенной воде" className={styles.formItem}>
                             <Form.Item name="suspendSubstInPurified" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -120,7 +120,7 @@ const LabData = () => {
 
                         <Form.Item label="БПК₅ на входе ОС" className={styles.formItem}>
                             <Form.Item name="bpkInputOS" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мгО₂/дм³
@@ -129,7 +129,7 @@ const LabData = () => {
 
                         <Form.Item label="ХПК на входе аэротенка" className={styles.formItem}>
                             <Form.Item name="xpkInputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мгО₂/дм³
@@ -138,7 +138,7 @@ const LabData = () => {
 
                         <Form.Item label="БПК₅ на входе аэротенка" className={styles.formItem}>
                             <Form.Item name="bpkInputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мгО₂/дм³
@@ -147,7 +147,7 @@ const LabData = () => {
 
                         <Form.Item label="БПК₅ на выходе аэротенка" className={styles.formItem}>
                             <Form.Item name="bpkOutputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={20000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мгО₂/дм³
@@ -156,7 +156,7 @@ const LabData = () => {
 
                         <Form.Item label="Азот аммонийный на входе аэротенка" className={styles.formItem}>
                             <Form.Item name="nitrogenAmmoniumInputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -165,7 +165,7 @@ const LabData = () => {
 
                         <Form.Item label="Азот аммонийный на выходе аэротенка" className={styles.formItem}>
                             <Form.Item name="nitrogenAmmoniumOutputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -174,7 +174,7 @@ const LabData = () => {
 
                         <Form.Item label="Азот нитритов на входе аэротенка" className={styles.formItem}>
                             <Form.Item name="nitrogenNitriteInputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -183,7 +183,7 @@ const LabData = () => {
 
                         <Form.Item label="Азот нитритов на выходе аэротенка" className={styles.formItem}>
                             <Form.Item name="nitrogenNitriteOutputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -192,7 +192,7 @@ const LabData = () => {
 
                         <Form.Item label="Азот нитратов на входе аэротенка" className={styles.formItem}>
                             <Form.Item name="nitrogenNitrateInputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -201,7 +201,7 @@ const LabData = () => {
 
                         <Form.Item label="Азот нитратов на выходе аэротенка" className={styles.formItem}>
                             <Form.Item name="nitrogenNitrateOutputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -210,7 +210,7 @@ const LabData = () => {
 
                         <Form.Item label="Общий азот на входе БО" className={styles.formItem}>
                             <Form.Item name="totalNitrogenInputBO" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -219,7 +219,7 @@ const LabData = () => {
 
                         <Form.Item label="Органический азот на выходе аэротенков (азот по Кьельдалю)" className={styles.formItem}>
                             <Form.Item name="organicNitrogenOutputAero" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -228,7 +228,7 @@ const LabData = () => {
 
                         <Form.Item label="Общий фосфор после первичных отстойников (выход)" className={styles.formItem}>
                             <Form.Item name="totalPhosphorusOutput" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³
@@ -237,7 +237,7 @@ const LabData = () => {
 
                         <Form.Item label="Общий фосфор на выходе участка БО" className={styles.formItem}>
                             <Form.Item name="totalPhosphorusOutputBO" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
-                                <InputNumber/>
+                                <InputNumber min={0} max={1000}/>
                             </Form.Item>
                             <span className={styles.formSuffix}>
                                 мг/дм³

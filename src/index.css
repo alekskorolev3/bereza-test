@@ -82,3 +82,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ant-table-cell:has(div)  {
+  padding: 0!important;
+  min-height: 100%;
+  height: 1px;
+}

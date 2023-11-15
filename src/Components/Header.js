@@ -11,7 +11,7 @@ const Header = () => {
                 <Mode title="Автоматический"/>
             </div>
 
-            <span className={styles.title}>Помощник оператора WWT</span>
+            <span className={styles.title}>Помощник оператора WWTP</span>
 
             <div className={styles.logoWrapper}>
                 <img src="/amisit_logo.svg" alt="logo1"/>

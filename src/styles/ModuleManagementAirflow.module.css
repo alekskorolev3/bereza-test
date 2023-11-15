@@ -29,11 +29,3 @@
 .formSuffix {
     margin-left: 5px;
 }
-
-.redCell {
-    background-color: rgba(255, 67, 67, 0.8);
-    min-height: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

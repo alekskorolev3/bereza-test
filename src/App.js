@@ -11,6 +11,7 @@ import ProjectParams from "./Components/ProjectParams";
 import LabData from "./Components/LabData";
 import User from "./Components/User";
 import Statistics from "./Components/Statistics";
+import ModuleManagementAirflow from "./Components/ModuleManagementAirflow";
 
 function App() {
 
@@ -37,6 +38,11 @@ function App() {
                 <Route path="/labData" element={
                     <ProtectedRoute>
                         <LabData />
+                    </ProtectedRoute>
+                }/>
+                <Route path="/managementAirflow" element={
+                    <ProtectedRoute>
+                        <ModuleManagementAirflow />
                     </ProtectedRoute>
                 }/>
                 <Route path="/statistics" element={

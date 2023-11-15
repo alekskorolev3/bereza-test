@@ -1,11 +1,14 @@
+import React from 'react'
+
 export const columns = [
     {
         title: 'Номер ББО',
-        dataIndex: 'name',
+        dataIndex: 'name'
     },
     {
         title: '1',
         dataIndex: '1',
+        // render: (data) => checkParameter(data, 1)
     },
     {
         title: '2',
@@ -191,12 +194,39 @@ export const initData = [
     },
 ];
 
+// let counter = -1
+//
+//
+// const constraints = [
+//     // [min, max, max2, ..., maxN]
+//     ['doseFromWeight', [2, 5]],
+//     ['doseFromVolume', [0, 5]],
+//     ['ashPercent', [0, 30]],
+//     ['concentrationExcessActive', [0, 30]],
+//     ['suspendSubstSourceWater', [0, 800]],
+//     ['suspendSubstAfterSettling', [0, 420]],
+//     ['suspendSubstInPurified', [0, 20]],
+//     ['bpkInputOS', [0, 500]],
+//     ['xpkInputAero', [0, 1000]],
+//     ['bpkInputAero', [0, 700]],
+//     ['bpkOutputAero', [0, 20]],
+//     ['nitrogenAmmoniumInputAero', [0, 64]],
+//     ['nitrogenAmmoniumOutputAero', [0, 15]],
+//     ['nitrogenNitriteInputAero', [0, 1]],
+//     ['nitrogenNitriteOutputAero', [0, 1]],
+//     ['nitrogenNitrateInputAero', [0, 1]],
+//     ['nitrogenNitrateOutputAero', [0, 5]],
+//     ['totalNitrogenInputBO', [0, 92]],
+//     ['organicNitrogenOutputAero', [0, 10]],
+//     ['totalPhosphorusOutput', [0, 13]],
+//     ['totalPhosphorusOutputBO', [0, 3]]
+// ]
+
 export const convertTableData = (data) => {
 
     const {data_bbo_1, data_bbo_2, data_bbo_3, data_bbo_4} = data
 
     const list = [Object.entries(data_bbo_1), Object.entries(data_bbo_2), Object.entries(data_bbo_3), Object.entries(data_bbo_4)]
-
 
 
     return initData.map((row, j) => {
@@ -235,3 +265,19 @@ export const convertFormValues = (data) => {
         totalPhosphorusOutputBO: data_bbo_1.totalPhosphorusOutputBO
     }
 }
+
+// const checkParameter = (data) => {
+//     if (counter < constraints.length) {
+//         counter = counter + 1
+//     }
+//     else counter = 0
+//
+//     console.log(data, counter, constraints.length, constraints[counter][1][1])
+//
+//     if (typeof constraints?.[counter][1][1] !== 'undefined' && data > constraints?.[counter][1][1]) {
+//         return <div className={styles.redCell}><span>{data}</span></div>
+//     }
+//
+//     else return data
+//
+// }

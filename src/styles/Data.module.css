@@ -25,3 +25,221 @@
 .green {
     color: green;
 }
+
+.imgContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 63.43%;
+    aspect-ratio: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../public/schema.svg");
+}
+
+.paramGroup {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    cursor: pointer;
+}
+
+.param {
+    border: 1px solid #000000;
+    padding: 2px 8px;
+    font-size: calc((100vw - 238px) / 100);
+    width: calc((100vw - 238px) * 0.031);
+    transition: 0.3s all;
+    background: #FFFFFF;
+}
+
+.param:hover {
+    background: #00A3E7;
+    color: #FFFFFF;
+    border: 1px solid #00A3E7;
+}
+
+.ovpBbo1 {
+    left: 31%;
+    top: 31.7%;
+}
+
+.ovpBbo2 {
+    left: 31%;
+    top: 87.2%;
+}
+
+.ovpBbo3 {
+    left: 88.2%;
+    top: 41.1%;
+}
+
+.ovpBbo4 {
+    left: 88.2%;
+    top: 68.4%;
+}
+
+.sandTrapsEntry {
+    left: 17.2%;
+    top: 47%;
+}
+
+.siltPlatforms {
+    left: 34.2%;
+    top: 5.6%;
+}
+
+.siltPumpStation {
+    left: 50.75%;
+    top: 11%;
+}
+
+.blowerStation {
+    left: 72.55%;
+    top: 11.5%;
+}
+
+.bbo1Red {
+    left: 44.5%;
+    top: 27.1%;
+}
+
+.bbo2Red {
+    left: 44.5%;
+    top: 93.3%;
+}
+
+.bbo3Red {
+    left: 76%;
+    top: 27.1%;
+}
+
+.bbo4Red {
+    left: 76%;
+    top: 93.3%;
+}
+
+.bbo1Purple {
+    left: 54.6%;
+    top: 58%;
+}
+
+.bbo2Purple {
+    left: 54.6%;
+    top: 63.2%;
+}
+
+.bbo3Purple {
+    left: 66.2%;
+    top: 58%;
+}
+
+.bbo4Purple {
+    left: 66.2%;
+    top: 63.2%;
+}
+
+.bbo1Blue {
+    left: 53.5%;
+    top: 34.8%;
+}
+
+.bbo2Blue {
+    left: 53.85%;
+    top: 90.4%;
+}
+
+.bbo3Blue {
+    left: 67.1%;
+    top: 34.8%;
+}
+
+.bbo4Blue {
+    left: 66.75%;
+    top: 90.4%;
+}
+
+.bbo1Green {
+    left: 53.5%;
+    top: 40%;
+}
+
+.bbo2Green {
+    left: 53.5%;
+    top: 79.3%;
+}
+
+.bbo3Green {
+    left: 67.1%;
+    top: 40%;
+}
+
+.bbo4Green {
+    left: 67.1%;
+    top: 79.3%;
+}
+
+.bbo1Center {
+    left: 48.1%;
+    top: 45.85%;
+}
+
+.bbo2Center {
+    left: 48.1%;
+    top: 75.1%;
+}
+
+.bbo3Center {
+    left: 72.6%;
+    top: 45.85%;
+}
+
+.bbo4Center {
+    left: 72.6%;
+    top: 75.1%;
+}
+
+.bbo1Center2 {
+    left: 42.1%;
+    top: 43.85%;
+}
+
+.bbo2Center2 {
+    left: 42.1%;
+    top: 77.4%;
+}
+
+.bbo3Center2 {
+    left: 78.5%;
+    top: 43.85%;
+}
+
+.bbo4Center2 {
+    left: 78.5%;
+    top: 77.4%;
+}
+
+.bbo1Center3 {
+    left: 43.5%;
+    top: 50.3%;
+}
+
+.bbo2Center3 {
+    left: 43.8%;
+    top: 69.3%;
+}
+
+.bbo3Center3 {
+    left: 76.9%;
+    top: 50.3%;
+}
+
+.bbo4Center3 {
+    left: 76.9%;
+    top: 69.3%;
+}
+
+.exit {
+    left: 93.7%;
+    top: 57.3%;
+}
