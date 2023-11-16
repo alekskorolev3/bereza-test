@@ -2,6 +2,12 @@
     padding: 45px;
 }
 
+.containerInner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -14,16 +20,66 @@
     font-weight: 600;
 }
 
+.cardContainer {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 14px;
+    border: 1px solid #E2E6ED;
+    background: #FFF;
+}
+
+.icon {
+    width: 32px;
+}
+
+.paramName {
+    color: #5D676F;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.valuesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.valueWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+.valueInnerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
 .value {
     color: #5D676F;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
 }
 
-.red {
-    color: red;
+.statusContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.green {
-    color: green;
+
+.text {
+    color: #5D676F;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.36px;
 }
 
 .imgContainer {
@@ -44,7 +100,18 @@
     cursor: pointer;
 }
 
-.param {
+.param:not(:last-child) {
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    padding: 2px 8px;
+    font-size: calc((100vw - 238px) / 100);
+    width: calc((100vw - 238px) * 0.031);
+    transition: 0.3s all;
+    background: #FFFFFF;
+}
+
+.param:last-child {
     border: 1px solid #000000;
     padding: 2px 8px;
     font-size: calc((100vw - 238px) / 100);
@@ -53,10 +120,18 @@
     background: #FFFFFF;
 }
 
-.param:hover {
+.param:not(:last-child):hover {
     background: #00A3E7;
+    border-top: 1px solid #00A3E7;
+    border-left: 1px solid #00A3E7;
+    border-right: 1px solid #00A3E7;
     color: #FFFFFF;
+}
+
+.param:last-child:hover {
+    background: #00A3E7;
     border: 1px solid #00A3E7;
+    color: #FFFFFF;
 }
 
 .ovpBbo1 {

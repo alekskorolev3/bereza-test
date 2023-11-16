@@ -1,6 +1,7 @@
 import {useFetchWrapper} from "../helpers/fetch-wrapper";
 import {useRecoilValue} from "recoil";
 import {authAtom} from "../state/auth";
+import {API} from "../helpers/const";
 
 export {useLabDataActions};
 
@@ -17,7 +18,7 @@ function useLabDataActions() {
     function postLabData(params) {
         params.modified_by = auth?.authenticatedUser.id
 
-        return fetchWrapper.post(`http://192.168.1.136:8000/api/post_lab_value`, params)
+        return fetchWrapper.post(`${API}/post_lab_value`, params)
             .then(data => {
                 console.log(data)
                 return data
@@ -28,7 +29,7 @@ function useLabDataActions() {
     }
 
     function getAllParams() {
-        return fetchWrapper.get(`http://192.168.1.136:8000/api/get_all_lab_value`)
+        return fetchWrapper.get(`${API}/get_all_lab_value`)
             .then(params => {
                 return params
             })

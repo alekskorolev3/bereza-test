@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import styles from '../styles/Notifications.module.css'
+import {message} from "antd";
+import {wsAPI} from "../helpers/const";
 
 const Notifications = () => {
 
@@ -8,23 +10,16 @@ const Notifications = () => {
 
     useEffect(() => {
         if (!client) {
-            client = new W3CWebSocket('ws://192.168.2.43:8000/ws/notification/');
-            client.onopen = () => {
-                console.log('WebSocket Client Connected');
-            };
-
+            client = new W3CWebSocket(`${wsAPI}/notification/`);
             client.onmessage = (event) => {
 
                 if ('data' in JSON.parse(event.data)) {
 
                     let obj = JSON.parse(event.data)
-                    console.log(obj.data)
                     if (Array.isArray(obj.data)) {
-                        console.log("here1")
                         setNotifications(obj.data);
                     }
                     else {
-                        console.log("here2")
                         setNotifications((notifications) => [obj.data, ...notifications]);
                     }
 
@@ -32,13 +27,20 @@ const Notifications = () => {
 
             };
             client.onerror = function () {
-                console.log('Connection Error');
+                error()
+                setNotifications([])
             };
         }
     }, [])
 
     const [notifications, setNotifications] = useState([])
-
+    const [messageApi, contextHolder] = message.useMessage();
+    const error = () => {
+        messageApi.open({
+            type: 'error',
+            content: `Ошибка подключения к серверу ${wsAPI}/notification/`,
+        });
+    };
 
     const getIcon = (status) => {
         switch (status) {
@@ -54,37 +56,40 @@ const Notifications = () => {
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.titleContainer}>
-                <span>Уведомления</span>
-            </div>
+        <>
+            {contextHolder}
+            <div className={styles.container}>
+                <div className={styles.titleContainer}>
+                    <span>Уведомления</span>
+                </div>
 
-            {notifications.length ?
-                notifications.map((notification, i) => {
+                {notifications.length ?
+                    notifications.map((notification, i) => {
 
-                    if (i <= 7) {
-                        return (
-                            <div key={i} className={styles.notificationContainer}>
-                                {getIcon(notification.status_code)}
+                        if (i <= 7) {
+                            return (
+                                <div key={i} className={styles.notificationContainer}>
+                                    {getIcon(notification.status_code)}
 
-                                <div className={styles.notificationInnerContainer}>
-                                    <span className={styles.text}>{notification?.message}</span>
-                                    <span className={styles.date}>{notification?.created_date}</span>
+                                    <div className={styles.notificationInnerContainer}>
+                                        <span className={styles.text}>{notification?.message}</span>
+                                        <span className={styles.date}>{notification?.created_date}</span>
+                                    </div>
                                 </div>
+                            )
+                        }
+                    }) :
+                    (
+                        <div className={styles.notificationContainer}>
+                            <div className={styles.emptyContainer}>
+                                <img src="/nodata.svg" alt="empty"/>
+                                <span className={styles.emptyText}>Уведомлений нет</span>
                             </div>
-                        )
-                    }
-                }) :
-                (
-                    <div className={styles.notificationContainer}>
-                        <div className={styles.emptyContainer}>
-                            <img src="/nodata.svg" alt="empty"/>
-                            <span className={styles.emptyText}>Уведомлений нет</span>
                         </div>
-                    </div>
-                )
-            }
-        </div>
+                    )
+                }
+            </div>
+        </>
     )
 }
 

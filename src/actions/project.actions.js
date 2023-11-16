@@ -2,6 +2,7 @@ import {useRecoilValue} from 'recoil';
 
 import {useFetchWrapper} from "../helpers/fetch-wrapper";
 import {authAtom} from "../state/auth";
+import {API} from "../helpers/const";
 
 export {useProjectActions};
 
@@ -16,7 +17,7 @@ function useProjectActions() {
     async function postProjectParams(params) {
         params.modified_by = auth?.authenticatedUser.id
 
-        return await fetchWrapper.post(`http://192.168.1.136:8000/api/post_proj_value`, params)
+        return await fetchWrapper.post(`${API}/post_proj_value`, params)
             .then(projectParam => {
                 return projectParam
             })
@@ -26,7 +27,7 @@ function useProjectActions() {
     }
 
     function getAllParams() {
-        return fetchWrapper.get(`http://192.168.1.136:8000/api/get_all_proj_value`)
+        return fetchWrapper.get(`${API}/get_all_proj_value`)
             .then(params => {
                 return params
             })
