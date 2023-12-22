@@ -3,6 +3,7 @@ import {useSetRecoilState} from 'recoil';
 import {useFetchWrapper} from "../helpers/fetch-wrapper";
 import {authAtom} from "../state/auth";
 import {useNavigate} from "react-router";
+import {API} from "../helpers/const";
 
 export {useUserActions};
 
@@ -18,7 +19,8 @@ function useUserActions() {
     }
 
     function login(username, password) {
-        return fetchWrapper.post(`http://192.168.1.136:8000/login`, {username, password})
+
+        return fetchWrapper.post(`http://192.168.2.43:8000/login`, {username, password})
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
                 setAuth(user);
@@ -38,7 +40,7 @@ function useUserActions() {
     }
 
     function register(username, password) {
-        return fetchWrapper.post(`http://192.168.1.136:8000/register`, {username, password})
+        return fetchWrapper.post(`${API}/register`, {username, password})
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
                 return user

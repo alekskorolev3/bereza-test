@@ -1,35 +1,64 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from "../styles/Data.module.css";
+import {ConfigProvider, Switch, Tooltip} from "antd";
+
 
 const TechSchema = () => {
+
+    const [switchValue, setSwitchValue] = useState({checked: false, value: '27,3 м³/ч'})
+
     return (
         <div className={styles.container} style={{height: "fit-content"}}>
             <div className={styles.imgContainer}>
 
                 <div className={styles.paramGroup + ' ' + styles.sandTrapsEntry}>
-                    <span className={styles.param}>
-                        425,1
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        425,1 м³/ч
                     </span>
                 </div>
 
                 <div className={styles.paramGroup + ' ' + styles.siltPlatforms}>
-                    <span className={styles.param}>
-                        27,3
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        {
+                            !switchValue.checked ? switchValue.value : '0 м³/ч'
+                        }
+                    </span>
+                </div>
+
+                <div className={styles.paramGroup + ' ' + styles.siltPlatformsSwitch}>
+                    <ConfigProvider theme={{
+                        token: {
+                            fontFamily: "Euclid Circular A",
+                            colorPrimary: '#00A3E7'
+                        }
+                    }}>
+                        <Tooltip title='Включение откачки изб. активного ила и сырого остатка' color='#1F4458'>
+                            <Switch size='small' onChange={(e) => setSwitchValue(prev => ({...prev, checked: !prev.checked}))}/>
+                        </Tooltip>
+                    </ConfigProvider>
+
+                </div>
+
+                <div className={styles.paramGroup + ' ' + styles.siltPlatforms2}>
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        {
+                            switchValue.checked ? switchValue.value : '0 м³/ч'
+                        }
                     </span>
                 </div>
 
                 <div className={styles.paramGroup + ' ' + styles.siltPumpStation}>
-                    <span className={styles.param}>
-                        15,5
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        15,5 м³/ч
                     </span>
                 </div>
 
                 <div className={styles.paramGroup + ' ' + styles.blowerStation}>
-                    <span className={styles.param}>
-                        154,2
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        154,2 м³/ч
                     </span>
-                    <span className={styles.param}>
-                        187,7
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        187,7 м³/ч
                     </span>
                 </div>
 
@@ -254,8 +283,8 @@ const TechSchema = () => {
 
 
                 <div className={styles.paramGroup + ' ' + styles.exit}>
-                    <span className={styles.param}>
-                        189,2
+                    <span className={styles.param} style={{width: '4vw'}}>
+                        189,2 м³/ч
                     </span>
                 </div>
 

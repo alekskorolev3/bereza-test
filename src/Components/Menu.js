@@ -48,12 +48,24 @@ const Menu = () => {
                     <li className={styles.menuItem}>
                         <img src="/setting-2.svg" alt="setting"/>
                         <span className={styles.menuText}>Режим работы</span>
+                    </li>
+
+                    <li className={styles.menuItem}>
+                        <img src="/setting-2.svg" alt="setting"/>
+                        <span className={styles.menuText}>Настройка модулей управления</span>
 
                         <div className={styles.submenuContainer}>
-                            <NavLink to="/managementAirflow">
+                            {/*<NavLink to="/managementAirflow">*/}
+                            {/*    <div className={styles.menuItem}>*/}
+                            {/*        <img src="/setting-3.svg" alt="setting3"/>*/}
+                            {/*        <span className={styles.menuText}>Модуль управления затворами на воздух</span>*/}
+                            {/*    </div>*/}
+                            {/*</NavLink>*/}
+
+                            <NavLink to="/performanceInnerRecycle">
                                 <div className={styles.menuItem}>
                                     <img src="/setting-3.svg" alt="setting3"/>
-                                    <span className={styles.menuText}>Модуль управления затворами на воздух</span>
+                                    <span className={styles.menuText}>Настройка производительности внутренних рециклов</span>
                                 </div>
                             </NavLink>
                         </div>
@@ -83,6 +95,22 @@ const Menu = () => {
                     <li className={styles.menuItem}>
                         <img src="/filter-search.svg" alt="filter"/>
                         <span className={styles.menuText}>Прогнозирование</span>
+
+                        <div className={styles.submenuContainer}>
+                            <NavLink to="/airSupplyForecast">
+                                <div className={styles.menuItem}>
+                                    <img src="/setting-3.svg" alt="setting3"/>
+                                    <span className={styles.menuText}>Прогноз подачи воздуха</span>
+                                </div>
+                            </NavLink>
+
+                            <NavLink to="/airSupplyForecast">
+                                <div className={styles.menuItem}>
+                                    <img src="/setting-4.svg" alt="setting4"/>
+                                    <span className={styles.menuText}>Прогноз работы иловой насосной станции</span>
+                                </div>
+                            </NavLink>
+                        </div>
                     </li>
 
                     <NavLink to="/statistics" className={({isActive}) =>
@@ -94,14 +122,14 @@ const Menu = () => {
                         </li>
                     </NavLink>
 
-                    <NavLink to="/user" className={({isActive}) =>
-                        isActive ? styles.active : ""
-                    }>
-                        <li className={styles.menuItem}>
-                            <img src="/profile.svg" alt="profile"/>
-                            <span className={styles.menuText}>Пользователь</span>
-                        </li>
-                    </NavLink>
+                    {/*<NavLink to="/" className={({isActive}) =>*/}
+                    {/*    isActive ? styles.active : ""*/}
+                    {/*}>*/}
+                    {/*    <li className={styles.menuItem}>*/}
+                    {/*        <img src="/profile.svg" alt="profile"/>*/}
+                    {/*        <span className={styles.menuText}>Пользователь</span>*/}
+                    {/*    </li>*/}
+                    {/*</NavLink>*/}
                 </ul>
             </div>
 

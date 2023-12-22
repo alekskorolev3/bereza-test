@@ -11,7 +11,7 @@ const Header = () => {
         <>
             <header className={styles.header}>
                 <div className={styles.modeWrapper}>
-                    <span className={styles.modeText}>Режим</span>
+                    <span className={styles.modeText}>Текущий режим работы</span>
                     <Mode title="Автоматический"/>
                 </div>
 

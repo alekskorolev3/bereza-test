@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+    gap: 25px;
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    justify-content: center;
+}
+
+
+.title {
+    color: #5D676F;
+    font-weight: 600;
+    align-self: center;
+    margin: 0;
+}
+
+.form {
+    padding-top: 10px;
+}
+
+.formGroup h2 {
+    color: #5D676F;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.formItem {
+    display: flex;
+    gap: 5px;
+}
+
+.formSuffix {
+    margin-left: 5px;
+}
+
+.table {
+    border: 1px solid #f0f0f0;
+    border-spacing: 0;
+}
+
+.table tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.table th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+}
+
+.table th {
+    background: #FAFAFA;
+}
+
+.tableInner {
+    width: 100%;
+    border-spacing: 0;
+}
+
+
+.tableInner th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+.tableInner th {
+    background: #FAFAFA;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tableContainer {
+    display: flex;
+    flex-direction: column;
+    /*gap: 25px;*/
+}
+
+.table input {
+    text-align: center!important;
+}
+
+.tableInner input {
+    text-align: center!important;
+}

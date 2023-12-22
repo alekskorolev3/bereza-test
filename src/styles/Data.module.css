@@ -104,7 +104,7 @@
     border-top: 1px solid #000000;
     border-left: 1px solid #000000;
     border-right: 1px solid #000000;
-    padding: 2px 8px;
+    padding: 2px 5px;
     font-size: calc((100vw - 238px) / 100);
     width: calc((100vw - 238px) * 0.031);
     transition: 0.3s all;
@@ -113,7 +113,7 @@
 
 .param:last-child {
     border: 1px solid #000000;
-    padding: 2px 8px;
+    padding: 2px 5px;
     font-size: calc((100vw - 238px) / 100);
     width: calc((100vw - 238px) * 0.031);
     transition: 0.3s all;
@@ -155,22 +155,32 @@
 }
 
 .sandTrapsEntry {
-    left: 17.2%;
-    top: 47%;
+    left: 16.75%;
+    top: 45.6%;
 }
 
 .siltPlatforms {
-    left: 34.2%;
+    left: 32.2%;
     top: 5.6%;
 }
 
+.siltPlatformsSwitch {
+    left: 40%;
+    top: 5.8%;
+}
+
+.siltPlatforms2 {
+    left: 37.8%;
+    top: 11%;
+}
+
 .siltPumpStation {
-    left: 50.75%;
+    left: 50.25%;
     top: 11%;
 }
 
 .blowerStation {
-    left: 72.55%;
+    left: 71.7%;
     top: 11.5%;
 }
 

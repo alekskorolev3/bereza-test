@@ -7,6 +7,7 @@
     align-self: stretch;
     width: fit-content;
     min-height: 100%;
+    max-width: 150px;
 }
 
 .menuContainer {

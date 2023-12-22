@@ -36,6 +36,8 @@ const Login = () => {
 
         setLoading(true)
 
+        console.log(username, password)
+
         return userActions.login(username, password)
             .then((data) => {
                 if (!data) {

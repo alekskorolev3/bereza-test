@@ -1,35 +1,77 @@
 import styles from "../styles/Data.module.css"
 import {useRecoilValue, useSetRecoilState} from "recoil";
 import {messagesAtom} from "../state/messages";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {message} from "antd";
 import {wsAPI} from "../helpers/const";
 import Mode from "./Mode";
+// import {w3cwebsocket as W3CWebSocket} from "websocket";
 
 
 
 function Data() {
 
     const W3CWebSocket = require('websocket').w3cwebsocket;
-    let client = null;
+
+    const [ws, setWs] = useState(null)
+
+    let timeout = 200
 
     useEffect(() => {
-        if (!client) {
-            client = new W3CWebSocket(`${wsAPI}/socket-server/`);
-
-            client.onmessage = (event) => {
-
-                if ('data' in JSON.parse(event.data)) {
-                    setMessages((messages) => [...messages, JSON.parse(event.data)]);
-                }
-
-            };
-            client.onerror = function () {
-                error()
-                setMessages([])
-            };
+        if (!ws) {
+            connect();
         }
     }, [])
+
+
+    const connect = () => {
+        let ws = new W3CWebSocket(`${wsAPI}/socket-server/`);
+        let connectInterval;
+
+        ws.onopen = () => {
+            console.log("connected websocket main component");
+            setWs(ws)
+            timeout = 250;
+            clearTimeout(connectInterval);
+        };
+
+        ws.onmessage = (event) => {
+            if ('data' in JSON.parse(event.data)) {
+                setMessages((messages) => [...messages, JSON.parse(event.data)]);
+            }
+
+        };
+        ws.onerror = (err) => {
+            console.error(
+                "Socket encountered error: ",
+                err.message,
+                "Closing socket"
+            );
+
+            ws.close();
+            error()
+            setMessages([])
+        };
+
+        ws.onclose = e => {
+            console.log(
+                `Socket is closed. Reconnect will be attempted in ${Math.min(
+                    10000 / 1000,
+                    (timeout + timeout) / 1000
+                )} second.`,
+                e.reason
+            );
+
+            timeout = timeout + timeout; //increment retry interval
+            connectInterval = setTimeout(check, Math.min(10000, timeout)); //call check function after timeout
+        };
+    };
+
+    const check = () => {
+        if (!ws || ws.readyState === WebSocket.CLOSED) {
+            connect()
+        }
+    };
 
     const messages = useRecoilValue(messagesAtom);
     const setMessages = useSetRecoilState(messagesAtom);
