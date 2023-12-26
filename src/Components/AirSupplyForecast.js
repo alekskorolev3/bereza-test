@@ -5,6 +5,8 @@ import {EditOutlined, SettingOutlined} from "@ant-design/icons";
 
 const AirSupplyForecast = () => {
 
+    const [isEdit, setIsEdit] = useState(false)
+
     const [tableValues, setTableValues] = useState({
         ammoniaNitrogenInput: 57.5,
         ammoniaNitrogenOutput: 15,
