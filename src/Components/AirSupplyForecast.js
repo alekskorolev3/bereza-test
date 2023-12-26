@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import styles from '../styles/Modules.module.css'
-import {Collapse, ConfigProvider, Form, InputNumber, Switch} from "antd";
-import {EditOutlined, SettingOutlined} from "@ant-design/icons";
+import {Badge, Collapse, ConfigProvider, Form, InputNumber, Switch, Tooltip} from "antd";
+import {EditOutlined} from "@ant-design/icons";
 
 const AirSupplyForecast = () => {
 
@@ -213,7 +213,22 @@ const AirSupplyForecast = () => {
 
                             <tr>
                                 <td style={{borderBottom: 'none'}}>{tableValues.airSupplyAero}</td>
-                                <td colSpan={2} style={{borderBottom: 'none'}}>{tableValues.Qair}</td>
+                                <td colSpan={2} style={{borderBottom: 'none'}}>
+
+                                    {
+                                        tableValues.Qair > tableValues.airSupplyAero ?
+                                            <Tooltip title="Необходимо оптимизировать работу отстойников-осветлителей
+                                    либо проверить промышленные промпредприятия на наличие сброса высококонцентрированных сточных вод,
+                                    которые не соответствуют нормативу Правил сброса сточных вод в городскую канализационную сеть ">
+                                                <Badge dot>
+                                                    {tableValues.Qair}
+                                                </Badge>
+                                            </Tooltip> :
+                                            <>{tableValues.Qair}</>
+                                    }
+
+
+                                </td>
                             </tr>
                         </table>
                         <ConfigProvider theme={{
@@ -283,6 +298,7 @@ const AirSupplyForecast = () => {
                                                     <InputNumber
                                                     defaultValue={tableValues.q0aero}
                                                     bordered={false} min={0} max={200}
+                                                    disabled={!isEdit}
                                                     onChange={(e) => setTableValues(prev => ({...prev, q0aero: e}))}
                                                     />
                                                 </td>
@@ -309,6 +325,7 @@ const AirSupplyForecast = () => {
                                                    }
                                                    onChange={(checked, e) => {
                                                        e.stopPropagation()
+                                                       setIsEdit(prev => !prev)
                                                        console.log(checked)
                                     }}/>
                                 }]}
