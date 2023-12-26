@@ -14,6 +14,7 @@ import Statistics from "./Components/Statistics";
 import ModuleManagementAirflow from "./Components/ModuleManagementAirflow";
 import ModulePerformanceInnerRecycle from "./Components/ModulePerformanceInnerRecycle";
 import AirSupplyForecast from "./Components/AirSupplyForecast";
+import SludgeStationForecast from "./Components/SludgeStationForecast";
 
 function App() {
 
@@ -74,6 +75,13 @@ function App() {
                     //     <User />
                     // </ProtectedRoute>
                     <AirSupplyForecast/>
+                }/>
+
+                <Route path="/sludgeStationForecast" element={
+                    // <ProtectedRoute>
+                    //     <User />
+                    // </ProtectedRoute>
+                    <SludgeStationForecast/>
                 }/>
             </Route>
             <Route path="/login" element={<Login/>}/>

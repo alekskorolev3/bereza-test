@@ -104,7 +104,7 @@ const Menu = () => {
                                 </div>
                             </NavLink>
 
-                            <NavLink to="/airSupplyForecast">
+                            <NavLink to="/sludgeStationForecast">
                                 <div className={styles.menuItem}>
                                     <img src="/setting-4.svg" alt="setting4"/>
                                     <span className={styles.menuText}>Прогноз работы иловой насосной станции</span>
