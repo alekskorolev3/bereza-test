@@ -9,7 +9,7 @@ const TechSchema = () => {
 
     const [switchValue, setSwitchValue] = useState({checked: false, value: '27,3 м³/ч'})
 
-    const mockData = {
+    const mockData2 = {
         "bbo1": [{
             "name": "valve_4",
             "value": 27.0,
@@ -259,9 +259,9 @@ const TechSchema = () => {
         }]
     }
 
-    const mockData2 = useRecoilValue(messagesAtom);
+    const mockData = useRecoilValue(messagesAtom);
 
-    console.log(mockData2)
+    console.log(mockData)
 
     return (
         <div className={styles.container} style={{height: "fit-content"}}>
@@ -323,6 +323,7 @@ const TechSchema = () => {
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
                             mockData.bbo1.find((val) => val.name === 'OVP') ? `${mockData.bbo1.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
+
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
