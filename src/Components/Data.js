@@ -38,7 +38,7 @@ function Data() {
 
         ws.onmessage = (event) => {
             if ('bbo1' in JSON.parse(event.data)) {
-                setMessages((messages) => [...messages, [JSON.parse(event.data)]]);
+                setMessages((messages) => [...messages, JSON.parse(event.data)]);
             }
 
         };
@@ -379,154 +379,151 @@ function Data() {
                     {
                         messages.length !== 0 ?
                             [...messages].pop()?.status !== "connected" ?
-                                [...messages].pop()?.map((data) => (
-
-                                    <div className={styles.containerInner}>
-                                        <div key={1} className={styles.rowContainer}>
+                                <div className={styles.containerInner}>
+                                    <div key={1} className={styles.rowContainer}>
                                             <span className={styles.rowTitle}>
                                                 ББО 1
                                             </span>
-                                            {
-                                                data.bbo1?.map((data, i) => (
-                                                    <div key={i} className={styles.cardContainer}>
-                                                        <span className={styles.paramName}>{data.name}</span>
+                                        {
+                                            [...messages].pop()?.bbo1?.map((data, i) => (
+                                                <div key={i} className={styles.cardContainer}>
+                                                    <span className={styles.paramName}>{data.name}</span>
 
-                                                        <div className={styles.valuesContainer}>
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Показания</span>
-                                                                    <span className={styles.value}>{data.value}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Время</span>
-                                                                    <span className={styles.value}>{data.time}</span>
-                                                                </div>
+                                                    <div className={styles.valuesContainer}>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Показания</span>
+                                                                <span className={styles.value}>{data.value}</span>
                                                             </div>
                                                         </div>
 
-                                                        <div className={styles.statusContainer}>
-                                                            <span className={styles.text}>Статус</span>
-                                                            <Mode title="Работает"/>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Время</span>
+                                                                <span className={styles.value}>{data.time}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                ))
-                                            }
-                                        </div>
 
-                                        <div key={2} className={styles.rowContainer}>
+                                                    <div className={styles.statusContainer}>
+                                                        <span className={styles.text}>Статус</span>
+                                                        <Mode title="Работает"/>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+
+                                    <div key={2} className={styles.rowContainer}>
                                             <span className={styles.rowTitle}>
                                                 ББО 2
                                             </span>
-                                            {
-                                                data.bbo2?.map((data, i) => (
-                                                    <div key={i} className={styles.cardContainer}>
-                                                        <span className={styles.paramName}>{data.name}</span>
+                                        {
+                                            [...messages].pop()?.bbo2?.map((data, i) => (
+                                                <div key={i} className={styles.cardContainer}>
+                                                    <span className={styles.paramName}>{data.name}</span>
 
-                                                        <div className={styles.valuesContainer}>
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Показания</span>
-                                                                    <span className={styles.value}>{data.value}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Время</span>
-                                                                    <span className={styles.value}>{data.time}</span>
-                                                                </div>
+                                                    <div className={styles.valuesContainer}>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Показания</span>
+                                                                <span className={styles.value}>{data.value}</span>
                                                             </div>
                                                         </div>
 
-                                                        <div className={styles.statusContainer}>
-                                                            <span className={styles.text}>Статус</span>
-                                                            <Mode title="Работает"/>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Время</span>
+                                                                <span className={styles.value}>{data.time}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                ))
-                                            }
-                                        </div>
 
-                                        <div key={3} className={styles.rowContainer}>
+                                                    <div className={styles.statusContainer}>
+                                                        <span className={styles.text}>Статус</span>
+                                                        <Mode title="Работает"/>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+
+                                    <div key={3} className={styles.rowContainer}>
                                             <span className={styles.rowTitle}>
                                                 ББО 3
                                             </span>
-                                            {
-                                                data.bbo3?.map((data, i) => (
-                                                    <div key={i} className={styles.cardContainer}>
-                                                        <span className={styles.paramName}>{data.name}</span>
+                                        {
+                                            [...messages].pop()?.bbo3?.map((data, i) => (
+                                                <div key={i} className={styles.cardContainer}>
+                                                    <span className={styles.paramName}>{data.name}</span>
 
-                                                        <div className={styles.valuesContainer}>
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Показания</span>
-                                                                    <span className={styles.value}>{data.value}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Время</span>
-                                                                    <span className={styles.value}>{data.time}</span>
-                                                                </div>
+                                                    <div className={styles.valuesContainer}>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Показания</span>
+                                                                <span className={styles.value}>{data.value}</span>
                                                             </div>
                                                         </div>
 
-                                                        <div className={styles.statusContainer}>
-                                                            <span className={styles.text}>Статус</span>
-                                                            <Mode title="Работает"/>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Время</span>
+                                                                <span className={styles.value}>{data.time}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                ))
-                                            }
-                                        </div>
 
-                                        <div key={4} className={styles.rowContainer}>
+                                                    <div className={styles.statusContainer}>
+                                                        <span className={styles.text}>Статус</span>
+                                                        <Mode title="Работает"/>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+
+                                    <div key={4} className={styles.rowContainer}>
                                             <span className={styles.rowTitle}>
                                                 ББО 4
                                             </span>
-                                            {
-                                                data.bbo4?.map((data, i) => (
-                                                    <div key={i} className={styles.cardContainer}>
-                                                        <span className={styles.paramName}>{data.name}</span>
+                                        {
+                                            [...messages].pop()?.bbo4?.map((data, i) => (
+                                                <div key={i} className={styles.cardContainer}>
+                                                    <span className={styles.paramName}>{data.name}</span>
 
-                                                        <div className={styles.valuesContainer}>
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Показания</span>
-                                                                    <span className={styles.value}>{data.value}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div className={styles.valueWrapper}>
-                                                                <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
-                                                                <div className={styles.valueInnerWrapper}>
-                                                                    <span className={styles.value}>Время</span>
-                                                                    <span className={styles.value}>{data.time}</span>
-                                                                </div>
+                                                    <div className={styles.valuesContainer}>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Показания</span>
+                                                                <span className={styles.value}>{data.value}</span>
                                                             </div>
                                                         </div>
 
-                                                        <div className={styles.statusContainer}>
-                                                            <span className={styles.text}>Статус</span>
-                                                            <Mode title="Работает"/>
+                                                        <div className={styles.valueWrapper}>
+                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <div className={styles.valueInnerWrapper}>
+                                                                <span className={styles.value}>Время</span>
+                                                                <span className={styles.value}>{data.time}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                ))
-                                            }
-                                        </div>
+
+                                                    <div className={styles.statusContainer}>
+                                                        <span className={styles.text}>Статус</span>
+                                                        <Mode title="Работает"/>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
-                                )) :
+                                </div> :
                                 <div className={styles.cardContainer}>
                                     <span className={styles.paramName}>Датчик</span>
 
