@@ -263,6 +263,7 @@ const TechSchema = () => {
 
     console.log(mockData)
 
+    console.log([...mockData].pop()?.bbo1)
     return (
         <div className={styles.container} style={{height: "fit-content"}}>
             <div className={styles.imgContainer}>
