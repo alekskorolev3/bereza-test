@@ -41,3 +41,30 @@
     transition: 0.3s all;
     filter: invert(78%) sepia(53%) saturate(1821%) hue-rotate(170deg) brightness(103%) contrast(101%);
 }
+
+.menuIcon {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .header {
+        padding: 9px 18px;
+    }
+
+    .modeText {
+        font-size: 12px;
+    }
+
+    .modeWrapper {
+        flex-direction: column;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .menuIcon {
+        display: unset;
+        width: 30px;
+    }
+}

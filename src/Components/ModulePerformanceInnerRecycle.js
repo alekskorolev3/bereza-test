@@ -1,13 +1,29 @@
 import React from 'react'
 import styles from "../styles/Modules.module.css"
-import {Button, ConfigProvider, Form, InputNumber} from "antd";
+import {Button, ConfigProvider, Form, InputNumber, message} from "antd";
+import {API} from "../helpers/const";
 
 const ModulePerformanceInnerRecycle = () => {
 
     const [form] = Form.useForm();
+    const [messageApi, contextHolder] = message.useMessage();
+    const successPost = () => {
+        messageApi.open({
+            type: 'success',
+            content: `Данные успешно сохранены`,
+        });
+    };
+
+    const errorPost = () => {
+        messageApi.open({
+            type: 'error',
+            content: `Ошибка подключения к серверу ${API}`,
+        });
+    };
 
     return (
         <div className={styles.container}>
+            {contextHolder}
             <h3 className={styles.title}>Настройка производительности внутренних рециклов</h3>
 
             <div>
@@ -18,6 +34,7 @@ const ModulePerformanceInnerRecycle = () => {
                 }}>
                     <Form className={styles.form} onFinish={(values) => {
                         console.log(values)
+                        errorPost()
                     }} form={form}>
 
                         <div className={styles.innerContainer}>

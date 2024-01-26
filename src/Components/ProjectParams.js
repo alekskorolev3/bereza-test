@@ -74,8 +74,8 @@ const ProjectParams = () => {
 
                             <Form.Item label="Рабочая глубина аэротенка: " className={styles.formItem}>
                                 <Form.Item name="tankHeight" noStyle
-                                           rules={[{required: true, message: "Необходимо ввести значение"}]}>
-                                    <InputNumber/>
+                                           rules={[{required: true, message: "Необходимо ввести корректное значение"}]}>
+                                    <InputNumber min={0}/>
                                 </Form.Item>
                                 <span className={styles.formSuffix}>
                         м

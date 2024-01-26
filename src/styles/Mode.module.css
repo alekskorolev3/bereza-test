@@ -34,3 +34,10 @@
 .red {
     background: #FF2444;
 }
+
+@media screen and (max-width: 900px){
+    .container {
+        padding: 4px 10px;
+        gap: 6px;
+    }
+}

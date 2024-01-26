@@ -10,6 +10,8 @@ const Header = () => {
     return (
         <>
             <header className={styles.header}>
+
+                <img src="/menu-open.svg" alt="menu-open" className={styles.menuIcon}/>
                 <div className={styles.modeWrapper}>
                     <span className={styles.modeText}>Текущий режим работы</span>
                     <Mode title="Автоматический"/>

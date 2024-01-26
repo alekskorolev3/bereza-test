@@ -89,3 +89,10 @@
 .tableInner input {
     text-align: center!important;
 }
+
+
+@media screen and (max-width: 900px){
+    .innerContainer {
+        flex-direction: column-reverse;
+    }
+}

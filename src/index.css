@@ -88,3 +88,7 @@ code {
   min-height: 100%;
   height: 1px;
 }
+
+input {
+  cursor: pointer;
+}
