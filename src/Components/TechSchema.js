@@ -9,7 +9,7 @@ const TechSchema = () => {
 
     const [switchValue, setSwitchValue] = useState({checked: false, value: '27,3 м³/ч'})
 
-    const mockData2 = {
+    const mockData = {
         "bbo1": [{
             "name": "valve_4",
             "value": 27.0,
@@ -259,7 +259,9 @@ const TechSchema = () => {
         }]
     }
 
-    const mockData = useRecoilValue(messagesAtom);
+    const mockData2 = useRecoilValue(messagesAtom);
+
+    console.log(mockData2)
 
     return (
         <div className={styles.container} style={{height: "fit-content"}}>
