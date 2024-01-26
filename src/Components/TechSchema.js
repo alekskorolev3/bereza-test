@@ -323,18 +323,18 @@ const TechSchema = () => {
                 <div className={styles.paramGroup + ' ' + styles.ovpBbo1}>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo1.find((val) => val.name === 'OVP') ? `${mockData.bbo1.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
+                            [...mockData].pop()?.bbo1.find((val) => val.name === 'OVP') ? `${ [...mockData].pop()?.bbo1.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
 
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo1?.find((val) => val.name === 'acidity') ? `${mockData.bbo1.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
+                            [...mockData].pop()?.bbo1?.find((val) => val.name === 'acidity') ? `${ [...mockData].pop()?.bbo1.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo1?.find((val) => val.name === 'temperature') ? `${mockData.bbo1.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
+                            [...mockData].pop()?.bbo1?.find((val) => val.name === 'temperature') ? `${ [...mockData].pop()?.bbo1.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
                         }
                     </span>
                 </div>
@@ -342,17 +342,17 @@ const TechSchema = () => {
                 <div className={styles.paramGroup + ' ' + styles.ovpBbo2}>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo2?.find((val) => val.name === 'OVP') ? `${mockData.bbo2.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
+                            [...mockData].pop()?.bbo2?.find((val) => val.name === 'OVP') ? `${ [...mockData].pop()?.bbo2.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo2?.find((val) => val.name === 'acidity') ? `${mockData.bbo2.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
+                            [...mockData].pop()?.bbo2?.find((val) => val.name === 'acidity') ? `${ [...mockData].pop()?.bbo2.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo2?.find((val) => val.name === 'temperature') ? `${mockData.bbo2.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
+                            [...mockData].pop()?.bbo2?.find((val) => val.name === 'temperature') ? `${ [...mockData].pop()?.bbo2.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
                         }
                     </span>
                 </div>
@@ -360,17 +360,17 @@ const TechSchema = () => {
                 <div className={styles.paramGroup + ' ' + styles.ovpBbo3}>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo3?.find((val) => val.name === 'OVP') ? `${mockData.bbo3.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
+                            [...mockData].pop()?.bbo3?.find((val) => val.name === 'OVP') ? `${ [...mockData].pop()?.bbo3.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo3?.find((val) => val.name === 'acidity') ? `${mockData.bbo3.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
+                            [...mockData].pop()?.bbo3?.find((val) => val.name === 'acidity') ? `${ [...mockData].pop()?.bbo3.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo3?.find((val) => val.name === 'temperature') ? `${mockData.bbo3.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
+                            [...mockData].pop()?.bbo3?.find((val) => val.name === 'temperature') ? `${ [...mockData].pop()?.bbo3.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
                         }
                     </span>
                 </div>
@@ -378,17 +378,17 @@ const TechSchema = () => {
                 <div className={styles.paramGroup + ' ' + styles.ovpBbo4}>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo4?.find((val) => val.name === 'OVP') ? `${mockData.bbo4.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
+                            [...mockData].pop()?.bbo4?.find((val) => val.name === 'OVP') ? `${ [...mockData].pop()?.bbo4.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo4?.find((val) => val.name === 'acidity') ? `${mockData.bbo4.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
+                            [...mockData].pop()?.bbo4?.find((val) => val.name === 'acidity') ? `${ [...mockData].pop()?.bbo4.find((val) => val.name === 'acidity').value.toFixed(1)} pH` : '– pH'
                         }
                     </span>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo4?.find((val) => val.name === 'temperature') ? `${mockData.bbo4.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
+                            [...mockData].pop()?.bbo4?.find((val) => val.name === 'temperature') ? `${ [...mockData].pop()?.bbo4.find((val) => val.name === 'temperature').value.toFixed(1)} °C` : '– °C'
                         }
                     </span>
                 </div>
@@ -397,7 +397,7 @@ const TechSchema = () => {
                     <span className={styles.param}>
                         {
                             [...mockData].pop()?.bbo1?.find((val) => val.name === 'air_consumption') ?
-                                `${(mockData.bbo1.find((val) => val.name === 'air_consumption').value * 100).toFixed(1)} %` :
+                                `${( [...mockData].pop()?.bbo1.find((val) => val.name === 'air_consumption').value * 100).toFixed(1)} %` :
                                 '– %'
                         }
                     </span>
