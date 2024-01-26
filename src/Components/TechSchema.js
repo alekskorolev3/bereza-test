@@ -322,7 +322,7 @@ const TechSchema = () => {
                 <div className={styles.paramGroup + ' ' + styles.ovpBbo1}>
                     <span className={styles.param} style={{width: 'calc((100vw - 238px) * 0.042)'}}>
                         {
-                            [...mockData].pop()?.bbo1?.find((val) => val.name === 'OVP') ? `${mockData.bbo1.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
+                            [...mockData].pop()?.bbo1.find((val) => val.name === 'OVP') ? `${mockData.bbo1.find((val) => val.name === 'OVP').value.toFixed(1)} мВ` : '– мВ'
 
                         }
                     </span>
