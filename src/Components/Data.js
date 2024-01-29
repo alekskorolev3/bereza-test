@@ -38,7 +38,7 @@ function Data() {
 
         ws.onmessage = (event) => {
             if ('bbo1' in JSON.parse(event.data)) {
-                setMessages((messages) => [...messages, JSON.parse(event.data)]);
+                setMessages((messages) => [messages[messages.length - 2], messages[messages.length - 1], JSON.parse(event.data)]);
             }
 
         };
