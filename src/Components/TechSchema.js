@@ -395,11 +395,7 @@ const TechSchema = () => {
 
                 <div className={styles.paramGroup + ' ' + styles.bbo1Red}>
                     <span className={styles.param}>
-                        {
-                            [...mockData].pop()?.bbo1?.find((val) => val.name === 'air_consumption') ?
-                                `${( [...mockData].pop()?.bbo1.find((val) => val.name === 'air_consumption').value * 100).toFixed(1)} %` :
-                                '– %'
-                        }
+                        41,5 %
                     </span>
                 </div>
 
