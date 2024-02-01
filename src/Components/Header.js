@@ -6,6 +6,7 @@ import Notifications from "./Notifications";
 const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [mode, setMode] = useState({isOpen: false, current: "Автоматический"})
 
     return (
         <>
@@ -13,8 +14,29 @@ const Header = () => {
 
                 <img src="/menu-open.svg" alt="menu-open" className={styles.menuIcon}/>
                 <div className={styles.modeWrapper}>
-                    <span className={styles.modeText}>Текущий режим работы</span>
-                    <Mode title="Автоматический"/>
+                    <div className={styles.listWrapper}>
+                        <div className={styles.listWrapperInner} onClick={() => setMode((prev) => ({...prev, isOpen: !prev.isOpen}))}>
+                            <span className={styles.modeText}>Текущий режим работы</span>
+                            <img src="/arrow_down.svg" alt="arrow_down" />
+                        </div>
+
+
+
+                        {mode.isOpen ? <div className={styles.dropdown}>
+                            <span className={styles.dropdownItem} style={mode.current === "Автоматический" ? {fontWeight: "600"} : {}}
+                                  onClick={() => setMode(() => ({isOpen: false, current: "Автоматический"}))}
+                            >
+                                Автоматический
+                            </span>
+                            <span className={styles.dropdownItem} style={mode.current === "Локальный" ? {fontWeight: "600"} : {}}
+                                  onClick={() => setMode(() => ({isOpen: false, current: "Локальный"}))}
+                            >
+                                Локальный
+                            </span>
+                        </div> : null}
+                    </div>
+
+                    <Mode title={mode.current}/>
                 </div>
 
                 <span className={styles.title}>Помощник оператора WWTP</span>

@@ -91,6 +91,13 @@
     aspect-ratio: auto;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.imgOff {
+    background-image: url("../../public/schema_2.svg");
+}
+
+.imgOn {
     background-image: url("../../public/schema.svg");
 }
 

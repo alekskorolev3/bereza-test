@@ -261,12 +261,13 @@ const TechSchema = () => {
 
     const mockData = useRecoilValue(messagesAtom);
 
+
     console.log(mockData)
 
     console.log([...mockData].pop()?.bbo1)
     return (
         <div className={styles.container} style={{height: "fit-content"}}>
-            <div className={styles.imgContainer}>
+            <div className={`${styles.imgContainer} ${switchValue.checked ? styles.imgOn : styles.imgOff}`}>
 
                 <div className={styles.paramGroup + ' ' + styles.sandTrapsEntry}>
                     <span className={styles.param} style={{width: '4vw'}}>
@@ -289,7 +290,7 @@ const TechSchema = () => {
                             colorPrimary: '#00A3E7'
                         }
                     }}>
-                        <Tooltip title='Включение откачки изб. активного ила и сырого остатка' color='#1F4458'>
+                        <Tooltip title={switchValue.checked ? 'Откачка ИАИ и СО на распред. чашу' : 'Откачка ИАИ и СО на иловые площадки'} color='#1F4458'>
                             <Switch size='small'
                                     onChange={(e) => setSwitchValue(prev => ({...prev, checked: !prev.checked}))}/>
                         </Tooltip>

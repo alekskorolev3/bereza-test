@@ -9,6 +9,8 @@ const Mode = ({title}) => {
                 return <div className={styles.indicator + ' ' + styles.green}/>
             case 'Автоматический':
                 return <div className={styles.indicator + ' ' + styles.green}/>
+            case 'Локальный':
+                return <div className={styles.indicator + ' ' + styles.yellow}/>
             case 'Ошибка':
                 return <div className={styles.indicator + ' ' + styles.red}/>
             case 'Подключение':

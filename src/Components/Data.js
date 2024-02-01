@@ -24,7 +24,6 @@ function Data() {
     }, [])
 
 
-
     const connect = () => {
         let ws = new W3CWebSocket(`${wsAPI}/socket-server/`);
         let connectInterval;
@@ -85,287 +84,287 @@ function Data() {
         });
     };
 
+    const convertUnicode = (unicode) => {
+        let enc = encodeURIComponent(unicode)
+
+        return decodeURIComponent(enc)
+    }
 
     const mockData = {
-        "bbo1": [
-            {
-                "name": "valve_4",
-                "value": 27.0,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:56",
-                "bbo_id": 1
-            },
-            {
-                "name": "valve_3",
-                "value": 21.0,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:54",
-                "bbo_id": 1
-            },
-            {
-                "name": "valve_2",
-                "value": 61.0,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:51",
-                "bbo_id": 1
-            },
-            {
-                "name": "valve_1",
-                "value": 47.0,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:49",
-                "bbo_id": 1
-            },
-            {
-                "name": "OVP",
-                "value": -46.253662109375,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:47",
-                "bbo_id": 1
-            },
-            {
-                "name": "air_consumption",
-                "value": 0.6263937950134277,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:45",
-                "bbo_id": 1
-            },
-            {
-                "name": "consumption_silt_level",
-                "value": 0.957268476486206,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:43",
-                "bbo_id": 1
-            },
-            {
-                "name": "redundant_silt_level",
-                "value": 1.4157408475875854,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:41",
-                "bbo_id": 1
-            },
-            {
-                "name": "silt_level",
-                "value": 5.138175964355469,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:39",
-                "bbo_id": 1
-            },
-            {
-                "name": "temperature",
-                "value": 15.241003036499023,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:37",
-                "bbo_id": 1
-            },
-            {
-                "name": "acidity",
-                "value": 1.1742870807647705,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:35",
-                "bbo_id": 1
-            },
-            {
-                "name": "turbidity",
-                "value": 2.228086233139038,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:33",
-                "bbo_id": 1
-            }
-        ],
-        "bbo2": [
-            {
-                "name": "silt_level",
-                "value": 1.8098440170288086,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:06",
-                "bbo_id": 2
-            },
-            {
-                "name": "temperature",
-                "value": 11.59305477142334,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:04",
-                "bbo_id": 2
-            },
-            {
-                "name": "OVP",
-                "value": -485.8000183105469,
-
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:02",
-                "bbo_id": 2
-            },
-            {
-                "name": "acidity",
-                "value": 7.617603302001953,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:00",
-                "bbo_id": 2
-            },
-            {
-                "name": "oxygen",
-                "value": 2.4503860473632812,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:09:58",
-                "bbo_id": 2
-            }
-        ],
-        "bbo3": [
-            {
-                "name": "silt_level",
-                "value": 0.6268240809440613,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:17",
-                "bbo_id": 3
-            },
-            {
-                "name": "oxygen",
-                "value": 0.0,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:15",
-                "bbo_id": 3
-            },
-            {
-                "name": "turbidity",
-                "value": 4.946056365966797,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:13",
-                "bbo_id": 3
-            },
-            {
-                "name": "acidity",
-                "value": 6.689656734466553,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:11",
-                "bbo_id": 3
-            },
-            {
-                "name": "OVP",
-                "value": -447.8999938964844,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:08",
-                "bbo_id": 3
-            }
-        ],
-        "bbo4": [
-            {
-                "name": "silt_level",
-                "value": 16666.0,
-                "is_main": true,
-                "is_masked": true,
-                "is_ready": true,
-                "is_accident": true,
-                "time": "26.01.2024 13:11:58",
-                "bbo_id": 4
-            },
-            {
-                "name": "silt_level",
-                "value": 0.0,
-                "is_main": true,
-                "is_masked": true,
-                "is_ready": true,
-                "is_accident": true,
-                "time": "26.01.2024 13:11:01",
-                "bbo_id": 4
-            },
-            {
-                "name": "silt_level",
-                "value": 0.957268476486206,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:28",
-                "bbo_id": 4
-            },
-            {
-                "name": "oxygen",
-                "value": 1.5051460266113281,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:25",
-                "bbo_id": 4
-            },
-            {
-                "name": "turbidity",
-                "value": 8.823822021484375,
-                "is_main": true,
-                "is_masked": false,
-                "is_ready": true,
-                "is_accident": false,
-                "time": "26.01.2024 13:10:23",
-                "bbo_id": 4
-            }
-        ]
+        "bbo1": [{
+            "name": "valve_4",
+            "value": 27.0,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:03",
+            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 4",
+            "bbo_id": 1
+        }, {
+            "name": "valve_3",
+            "value": 21.0,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:01",
+            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 3",
+            "bbo_id": 1
+        }, {
+            "name": "valve_2",
+            "value": 61.0,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:59",
+            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 2",
+            "bbo_id": 1
+        }, {
+            "name": "valve_1",
+            "value": 47.0,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:57",
+            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 1",
+            "bbo_id": 1
+        }, {
+            "name": "OVP",
+            "value": -40.81578063964844,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:55",
+            "rus_name": "\u041e\u0412\u041f",
+            "bbo_id": 1
+        }, {
+            "name": "air_consumption",
+            "value": 1.6573116779327393,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:53",
+            "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0437\u0434\u0443\u0445\u0430",
+            "bbo_id": 1
+        }, {
+            "name": "consumption_silt_level",
+            "value": 0.5885303616523743,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:51",
+            "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0438\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u043e\u0433\u043e \u0438\u043b\u0430",
+            "bbo_id": 1
+        }, {
+            "name": "redundant_silt_level",
+            "value": 1.3678386211395264,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:49",
+            "rus_name": "\u0418\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+            "bbo_id": 1
+        }, {
+            "name": "silt_level",
+            "value": 6.618844985961914,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:46",
+            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+            "bbo_id": 1
+        }, {
+            "name": "temperature",
+            "value": 17.038471221923828,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:44",
+            "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
+            "bbo_id": 1
+        }, {
+            "name": "acidity",
+            "value": 1.4006907939910889,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:42",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 1
+        }, {
+            "name": "turbidity",
+            "value": 2.884554862976074,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:24:40",
+            "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 1
+        }],
+        "bbo2": [{
+            "name": "silt_level",
+            "value": 0.595528781414032,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:14",
+            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+            "bbo_id": 2
+        }, {
+            "name": "temperature",
+            "value": 14.293558120727539,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:12",
+            "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
+            "bbo_id": 2
+        }, {
+            "name": "OVP",
+            "value": -489.6000061035156,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:10",
+            "rus_name": "\u041e\u0412\u041f",
+            "bbo_id": 2
+        }, {
+            "name": "acidity",
+            "value": 7.358160495758057,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:07",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 2
+        }, {
+            "name": "oxygen",
+            "value": 0.1991599053144455,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:05",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+            "bbo_id": 2
+        }],
+        "bbo3": [{
+            "name": "silt_level",
+            "value": 1.6573116779327393,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:24",
+            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+            "bbo_id": 3
+        }, {
+            "name": "oxygen",
+            "value": 0.0,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:22",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+            "bbo_id": 3
+        }, {
+            "name": "turbidity",
+            "value": 3.5643181800842285,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:20",
+            "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 3
+        }, {
+            "name": "acidity",
+            "value": 6.303897380828857,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:18",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 3
+        }, {
+            "name": "OVP",
+            "value": -427.0999755859375,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:16",
+            "rus_name": "\u041e\u0412\u041f",
+            "bbo_id": 3
+        }],
+        "bbo4": [{
+            "name": "silt_level",
+            "value": 0.5885303616523743,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:35",
+            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+            "bbo_id": 4
+        }, {
+            "name": "oxygen",
+            "value": 0.07040954381227493,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:33",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+            "bbo_id": 4
+        }, {
+            "name": "turbidity",
+            "value": 12.971511840820312,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:31",
+            "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 4
+        }, {
+            "name": "acidity",
+            "value": 6.252176284790039,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:28",
+            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+            "bbo_id": 4
+        }, {
+            "name": "OVP",
+            "value": -426.3999938964844,
+            "is_main": true,
+            "is_masked": false,
+            "is_ready": true,
+            "is_accident": false,
+            "time": "01.02.2024 11:25:26",
+            "rus_name": "\u041e\u0412\u041f",
+            "bbo_id": 4
+        }]
     }
 
     return (
@@ -387,11 +386,12 @@ function Data() {
                                         {
                                             [...messages].pop()?.bbo1?.map((data, i) => (
                                                 <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{data.name}</span>
+                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
 
                                                     <div className={styles.valuesContainer}>
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <img src="/valueIcon.svg" alt="value"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
                                                                 <span className={styles.value}>{data.value}</span>
@@ -399,7 +399,8 @@ function Data() {
                                                         </div>
 
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <img src="/dateIcon.svg" alt="date"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Время</span>
                                                                 <span className={styles.value}>{data.time}</span>
@@ -423,11 +424,12 @@ function Data() {
                                         {
                                             [...messages].pop()?.bbo2?.map((data, i) => (
                                                 <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{data.name}</span>
+                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
 
                                                     <div className={styles.valuesContainer}>
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <img src="/valueIcon.svg" alt="value"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
                                                                 <span className={styles.value}>{data.value}</span>
@@ -435,7 +437,8 @@ function Data() {
                                                         </div>
 
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <img src="/dateIcon.svg" alt="date"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Время</span>
                                                                 <span className={styles.value}>{data.time}</span>
@@ -459,11 +462,12 @@ function Data() {
                                         {
                                             [...messages].pop()?.bbo3?.map((data, i) => (
                                                 <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{data.name}</span>
+                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
 
                                                     <div className={styles.valuesContainer}>
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <img src="/valueIcon.svg" alt="value"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
                                                                 <span className={styles.value}>{data.value}</span>
@@ -471,7 +475,8 @@ function Data() {
                                                         </div>
 
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <img src="/dateIcon.svg" alt="date"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Время</span>
                                                                 <span className={styles.value}>{data.time}</span>
@@ -495,11 +500,12 @@ function Data() {
                                         {
                                             [...messages].pop()?.bbo4?.map((data, i) => (
                                                 <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{data.name}</span>
+                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
 
                                                     <div className={styles.valuesContainer}>
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value" className={styles.icon}/>
+                                                            <img src="/valueIcon.svg" alt="value"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
                                                                 <span className={styles.value}>{data.value}</span>
@@ -507,7 +513,8 @@ function Data() {
                                                         </div>
 
                                                         <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date" className={styles.icon}/>
+                                                            <img src="/dateIcon.svg" alt="date"
+                                                                 className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Время</span>
                                                                 <span className={styles.value}>{data.time}</span>
@@ -579,9 +586,6 @@ function Data() {
                             </div>
                     }
                 </div>
-
-
-
 
 
                 {/*<div className={styles.containerInner}>*/}
