@@ -394,7 +394,7 @@ function Data() {
                                                                  className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value}</span>
+                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
                                                             </div>
                                                         </div>
 
@@ -432,7 +432,7 @@ function Data() {
                                                                  className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value}</span>
+                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
                                                             </div>
                                                         </div>
 
@@ -470,7 +470,7 @@ function Data() {
                                                                  className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value}</span>
+                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
                                                             </div>
                                                         </div>
 
@@ -508,7 +508,7 @@ function Data() {
                                                                  className={styles.icon}/>
                                                             <div className={styles.valueInnerWrapper}>
                                                                 <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value}</span>
+                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
                                                             </div>
                                                         </div>
 
