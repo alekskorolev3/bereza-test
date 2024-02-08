@@ -110,6 +110,13 @@ const Menu = () => {
                                     <span className={styles.menuText}>Прогноз работы иловой насосной станции</span>
                                 </div>
                             </NavLink>
+
+                            <NavLink to="/recommendations">
+                                <div className={styles.menuItem}>
+                                    <img src="/setting-4.svg" alt="setting4"/>
+                                    <span className={styles.menuText}>Настройка рекомендаций</span>
+                                </div>
+                            </NavLink>
                         </div>
                     </li>
 
