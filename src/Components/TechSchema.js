@@ -713,7 +713,7 @@ const TechSchema = () => {
 
 
                 <div className={styles.paramGroup + ' ' + styles.exit}>
-                    <span className={styles.param} style={{width: '4vw'}}>
+                    <span className={styles.param} style={{width: '4.2vw'}}>
                         {
                             [...mockData].pop()?.common.find((val) => val.name === 'water_consumption_out') ? `${ [...mockData].pop()?.common.find((val) => val.name === 'water_consumption_out').value.toFixed(1)} м³/ч` : '– м³/ч'
                         }
