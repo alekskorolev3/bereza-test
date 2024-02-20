@@ -68,8 +68,9 @@ const Statistics = () => {
 
     const handleForm = async (values) => {
 
+        console.log(selectedParam)
         setIsLoading(prev => !prev)
-        options.plugins.title.text = selectedParam.name
+        options.plugins.title.text = selectedParam.rus_name
         statisticsActions.getStatistics({...values, bbo: selectedParam.bbo.bbo})
             .then((response) => {
                 let arr = {
@@ -117,12 +118,16 @@ const Statistics = () => {
                     <Form.Item label="Выбор параметра: " name="params"
                                rules={[{required: true}]}>
                         <Select
+                            labelInValue
                             style={{maxWidth: "500px"}}
                             optionLabelProp="label"
-                            onChange={(value) => setSelectedParam(() => ({
-                                name: value,
-                                bbo: checkedBbo.find(el => el.name === value)
-                            }))}
+                            onChange={(value) => setSelectedParam(() => {
+                                return {
+                                    rus_name: value.label,
+                                    name: value.value,
+                                    bbo: checkedBbo.find(el => el.name === value.value)
+                                }
+                            })}
                             options={
                                 [
                                     {value: 'OVP', label: 'ОВП', bbo: [1, 2, 3, 4]},
