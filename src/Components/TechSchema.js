@@ -9,7 +9,7 @@ const TechSchema = () => {
 
     const [switchValue, setSwitchValue] = useState({checked: false, value: '27,3 м³/ч'})
 
-    const mockData = [
+    const mockData2 = [
         {
             "bbo1": [{
                 "name": "oxygen",
@@ -309,7 +309,7 @@ const TechSchema = () => {
         }
     ]
 
-    const mockData2 = useRecoilValue(messagesAtom);
+    const mockData = useRecoilValue(messagesAtom);
 
 
     console.log(mockData)
