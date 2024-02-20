@@ -128,6 +128,9 @@ const Statistics = () => {
                                     {value: 'OVP', label: 'ОВП', bbo: [1, 2, 3, 4]},
                                     {value: 'acidity', label: 'Кислотность', bbo: [1, 2, 3, 4]},
                                     {value: 'temperature', label: 'Температура', bbo: [1, 2, 3, 4]},
+                                    {value: 'silt_level', label: 'Уровень ила', bbo: [1, 2, 3, 4]},
+                                    {value: 'turbidity', label: 'Доза ила (мутность)', bbo: [1, 2, 3, 4]},
+                                    {value: 'oxygen', label: 'Кислород', bbo: [1, 2, 3, 4]},
                                 ]}
                             optionRender={(option) => (
                                 <Space style={{display: "flex", justifyContent: "space-between"}}>
@@ -165,9 +168,9 @@ const Statistics = () => {
                         <RangePicker showTime locale={locale}/>
                     </Form.Item>
 
-                    <Form.Item label="Шаг времени на графике: " name="step"
+                    <Form.Item initialValue={5} label="Шаг времени на графике: " name="step"
                                rules={[{required: true}]}>
-                        <InputNumber addonAfter={selectAfter} defaultValue={5}/>
+                        <InputNumber addonAfter={selectAfter} defaultValue={5} value={5}/>
                     </Form.Item>
 
 
@@ -517,8 +520,5 @@ const mockData = {
         }
     ]
 }
-
-const url = "127.0.0.1:8000/api/stat?bbo_id=1&bbo_id=5&name=oxygen&name=water_consumption_in&first_date=2024-02-08 11:45&last_date=2024-02-14 00:00"
-
 
 export default Statistics
