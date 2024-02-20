@@ -419,7 +419,7 @@ function Data() {
 
                                 <tr>
                                     <td>ХПК на входе в ОС</td>
-                                    <td>450 мг/дм³</td>
+                                    <td>{[...messages].pop()?.common.find((val) => val.name === 'xpk') ? `${ [...messages].pop()?.common.find((val) => val.name === 'xpk').value.toFixed(1)} мг/л` : '– мг/л'}</td>
                                 </tr>
                             </table>
 
@@ -433,11 +433,11 @@ function Data() {
                                 </tr>
                                 <tr>
                                     <td>Средн. рассчит. потребн. в кислороде</td>
-                                    <td>520 мг/дм³</td>
+                                    <td>- мг/дм³</td>
                                     <td>
                                         <InputNumber
                                             disabled
-                                            defaultValue={400}
+                                            defaultValue={0}
                                             style={{width: "50px"}}
                                             variant='borderless' min={0} max={2000}
                                         />
@@ -446,7 +446,7 @@ function Data() {
                                     <td>
                                         <InputNumber
                                             disabled
-                                            defaultValue={700}
+                                            defaultValue={0}
                                             style={{width: "50px"}}
                                             variant='borderless' min={0} max={2000}
                                         />
@@ -471,11 +471,11 @@ function Data() {
                                 </tr>
                                 <tr>
                                     <td>Текущее давление в трубопроводе</td>
-                                    <td>520 кПа</td>
+                                    <td>- кПа</td>
                                     <td>
                                         <InputNumber
                                             disabled
-                                            defaultValue={400}
+                                            defaultValue={0}
                                             style={{width: "50px"}}
                                             variant='borderless' min={0} max={2000}
                                         />
@@ -484,7 +484,7 @@ function Data() {
                                     <td>
                                         <InputNumber
                                             disabled
-                                            defaultValue={700}
+                                            defaultValue={0}
                                             style={{width: "50px"}}
                                             variant='borderless' min={0} max={2000}
                                         />
@@ -507,12 +507,12 @@ function Data() {
                                 </tr>
                                 <tr>
                                     <td>Шаг регулирования</td>
-                                    <td>5 %</td>
+                                    <td>0 %</td>
                                 </tr>
 
                                 <tr>
                                     <td>Частота регулированияк</td>
-                                    <td>7 мин</td>
+                                    <td>0 мин</td>
                                 </tr>
                             </table>
 
