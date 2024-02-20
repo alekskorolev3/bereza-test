@@ -16,7 +16,8 @@ export const generateURL = (url, params) => {
     params.bbo.map(obj => (
         urlWithParams.searchParams.append(`bbo_id`, obj)
     ))
-    urlWithParams.searchParams.append("name", params.params);
+    console.log(params)
+    urlWithParams.searchParams.append("name", params.params.value);
     urlWithParams.searchParams.append("first_date", params.datetime[0].format('YYYY-MM-DD HH:mm').toString());
     urlWithParams.searchParams.append("last_date", params.datetime[1].format('YYYY-MM-DD HH:mm').toString());
 
