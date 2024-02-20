@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Badge, Collapse, ConfigProvider, Form, InputNumber, Switch, Tooltip} from "antd";
 import styles from "../styles/Modules.module.css";
 import {EditOutlined} from "@ant-design/icons";
-import {useRecoilValue} from "recoil";
-import {messagesAtom} from "../state/messages";
 
 const Recommendations = () => {
 
@@ -92,307 +90,307 @@ const Recommendations = () => {
         duration_xpk: 7
     })
 
-    const messages = useRecoilValue(messagesAtom);
+    //const messages = useRecoilValue(messagesAtom);
 
-    // const messages = [
-    //     {
-    //         "bbo1": [{
-    //             "name": "oxygen",
-    //             "value": 0.5182511210441589,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:55",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "valve_4",
-    //             "value": 27.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:53",
-    //             "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 4",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "valve_3",
-    //             "value": 21.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:51",
-    //             "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 3",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "valve_2",
-    //             "value": 61.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:49",
-    //             "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 2",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "valve_1",
-    //             "value": 47.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:46",
-    //             "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 1",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "OVP",
-    //             "value": -53.623626708984375,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:44",
-    //             "rus_name": "\u041e\u0412\u041f",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "silt_level",
-    //             "value": 6.6781110763549805,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:36",
-    //             "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "temperature",
-    //             "value": 15.36093521118164,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:34",
-    //             "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
-    //             "bbo_id": 1
-    //         }, {
-    //             "name": "acidity",
-    //             "value": 1.615569829940796,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:32",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-    //             "bbo_id": 1
-    //         }],
-    //         "bbo2": [{
-    //             "name": "silt_level",
-    //             "value": 0.6568394899368286,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:10",
-    //             "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-    //             "bbo_id": 2
-    //         }, {
-    //             "name": "temperature",
-    //             "value": 13.360366821289062,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:07",
-    //             "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
-    //             "bbo_id": 2
-    //         }, {
-    //             "name": "OVP",
-    //             "value": -487.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:05",
-    //             "rus_name": "\u041e\u0412\u041f",
-    //             "bbo_id": 2
-    //         }, {
-    //             "name": "acidity",
-    //             "value": 7.5731658935546875,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:03",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-    //             "bbo_id": 2
-    //         }, {
-    //             "name": "oxygen",
-    //             "value": 0.810758650302887,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:01",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-    //             "bbo_id": 2
-    //         }],
-    //         "bbo3": [{
-    //             "name": "silt_level",
-    //             "value": 1.520917296409607,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:20",
-    //             "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-    //             "bbo_id": 3
-    //         }, {
-    //             "name": "oxygen",
-    //             "value": 0.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:18",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-    //             "bbo_id": 3
-    //         }, {
-    //             "name": "turbidity",
-    //             "value": 0.028950994834303856,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:16",
-    //             "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
-    //             "bbo_id": 3
-    //         }, {
-    //             "name": "acidity",
-    //             "value": 6.5362019538879395,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:14",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-    //             "bbo_id": 3
-    //         }, {
-    //             "name": "OVP",
-    //             "value": -447.5,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:12",
-    //             "rus_name": "\u041e\u0412\u041f",
-    //             "bbo_id": 3
-    //         }],
-    //         "bbo4": [{
-    //             "name": "silt_level",
-    //             "value": 0.7025508880615234,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:31",
-    //             "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-    //             "bbo_id": 4
-    //         }, {
-    //             "name": "oxygen",
-    //             "value": 0.0,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:29",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-    //             "bbo_id": 4
-    //         }, {
-    //             "name": "turbidity",
-    //             "value": 6.607088565826416,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:27",
-    //             "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
-    //             "bbo_id": 4
-    //         }, {
-    //             "name": "acidity",
-    //             "value": 6.61706018447876,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:24",
-    //             "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-    //             "bbo_id": 4
-    //         }, {
-    //             "name": "OVP",
-    //             "value": -452.00006103515625,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:06:22",
-    //             "rus_name": "\u041e\u0412\u041f",
-    //             "bbo_id": 4
-    //         }],
-    //         "common": [{
-    //             "name": "water_consumption_out",
-    //             "value": 213.7173309326172,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:59",
-    //             "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0434\u044b \u0432\u044b\u0445\u043e\u0434",
-    //             "bbo_id": 5
-    //         }, {
-    //             "name": "water_consumption_in",
-    //             "value": 470.92333984375,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:57",
-    //             "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0434\u044b \u0432\u0445\u043e\u0434",
-    //             "bbo_id": 5
-    //         }, {
-    //             "name": "air_consumption",
-    //             "value": 1.520917296409607,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:42",
-    //             "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0437\u0434\u0443\u0445\u0430",
-    //             "bbo_id": 5
-    //         }, {
-    //             "name": "consumption_silt_level",
-    //             "value": 0.7025508880615234,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:40",
-    //             "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0438\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u043e\u0433\u043e \u0438\u043b\u0430",
-    //             "bbo_id": 5
-    //         }, {
-    //             "name": "redundant_silt_level",
-    //             "value": 0.9314670562744141,
-    //             "is_main": true,
-    //             "is_masked": false,
-    //             "is_ready": true,
-    //             "is_accident": false,
-    //             "time": "08.02.2024 16:05:38",
-    //             "rus_name": "\u0418\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-    //             "bbo_id": 5
-    //         }]
-    //     }
-    // ]
+    const messages = [
+        {
+            "bbo1": [{
+                "name": "oxygen",
+                "value": 0.5182511210441589,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:55",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 1
+            }, {
+                "name": "valve_4",
+                "value": 27.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:53",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 4",
+                "bbo_id": 1
+            }, {
+                "name": "valve_3",
+                "value": 21.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:51",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 3",
+                "bbo_id": 1
+            }, {
+                "name": "valve_2",
+                "value": 61.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:49",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 2",
+                "bbo_id": 1
+            }, {
+                "name": "valve_1",
+                "value": 47.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:46",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 1",
+                "bbo_id": 1
+            }, {
+                "name": "OVP",
+                "value": -53.623626708984375,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:44",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 1
+            }, {
+                "name": "silt_level",
+                "value": 6.6781110763549805,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:36",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 1
+            }, {
+                "name": "temperature",
+                "value": 15.36093521118164,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:34",
+                "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
+                "bbo_id": 1
+            }, {
+                "name": "acidity",
+                "value": 1.615569829940796,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:32",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 1
+            }],
+            "bbo2": [{
+                "name": "silt_level",
+                "value": 0.6568394899368286,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:10",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 2
+            }, {
+                "name": "temperature",
+                "value": 13.360366821289062,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:07",
+                "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
+                "bbo_id": 2
+            }, {
+                "name": "OVP",
+                "value": -487.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:05",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 2
+            }, {
+                "name": "acidity",
+                "value": 7.5731658935546875,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:03",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 2
+            }, {
+                "name": "oxygen",
+                "value": 0.810758650302887,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:01",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 2
+            }],
+            "bbo3": [{
+                "name": "silt_level",
+                "value": 1.520917296409607,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:20",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 3
+            }, {
+                "name": "oxygen",
+                "value": 0.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:18",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 3
+            }, {
+                "name": "turbidity",
+                "value": 0.028950994834303856,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:16",
+                "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 3
+            }, {
+                "name": "acidity",
+                "value": 6.5362019538879395,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:14",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 3
+            }, {
+                "name": "OVP",
+                "value": -447.5,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:12",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 3
+            }],
+            "bbo4": [{
+                "name": "silt_level",
+                "value": 0.7025508880615234,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:31",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 4
+            }, {
+                "name": "oxygen",
+                "value": 0.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:29",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 4
+            }, {
+                "name": "turbidity",
+                "value": 6.607088565826416,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:27",
+                "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 4
+            }, {
+                "name": "acidity",
+                "value": 6.61706018447876,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:24",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 4
+            }, {
+                "name": "OVP",
+                "value": -452.00006103515625,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:22",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 4
+            }],
+            "common": [{
+                "name": "water_consumption_out",
+                "value": 213.7173309326172,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:59",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0434\u044b \u0432\u044b\u0445\u043e\u0434",
+                "bbo_id": 5
+            }, {
+                "name": "water_consumption_in",
+                "value": 470.92333984375,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:57",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0434\u044b \u0432\u0445\u043e\u0434",
+                "bbo_id": 5
+            }, {
+                "name": "air_consumption",
+                "value": 1.520917296409607,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:42",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0437\u0434\u0443\u0445\u0430",
+                "bbo_id": 5
+            }, {
+                "name": "consumption_silt_level",
+                "value": 0.7025508880615234,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:40",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0438\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u043e\u0433\u043e \u0438\u043b\u0430",
+                "bbo_id": 5
+            }, {
+                "name": "redundant_silt_level",
+                "value": 0.9314670562744141,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:38",
+                "rus_name": "\u0418\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 5
+            }]
+        }
+    ]
 
     const getValue = (bbo, name) => {
         switch (bbo) {
@@ -412,11 +410,6 @@ const Recommendations = () => {
 
     }
 
-
-    useEffect(() => {
-        console.log(tableValues)
-    }, [tableValues])
-
     return (
         <ConfigProvider theme={{
             token: {
@@ -430,7 +423,7 @@ const Recommendations = () => {
                     <div className={styles.tableContainer} style={{maxWidth: '800px'}}>
                         <table className={styles.table} style={{borderBottom: '0'}}>
                             <tr>
-                                <th colSpan={5}>Рекомендации</th>
+                                <th colSpan={5}>Текущие значения</th>
                             </tr>
                             <tr>
                                 <th>Название параметра</th>
@@ -570,28 +563,28 @@ const Recommendations = () => {
                                     }
                                 </td>
                                 <td>
-                                    {
-                                        !(tableValues.bbo3.temp.min < getValue(3, 'temperature')) ?
-                                            <Tooltip
-                                                title="Необходимо обратить внимание на интенсивность процесса денитрификации">
-                                                <Badge dot>
-                                                    {getValue(3, 'temperature')}
-                                                </Badge>
-                                            </Tooltip> :
-                                            <>{getValue(3, 'temperature')}</>
-                                    }
+                                    {/*{*/}
+                                    {/*    !(tableValues.bbo3.temp.min < getValue(3, 'temperature')) ?*/}
+                                    {/*        <Tooltip*/}
+                                    {/*            title="Необходимо обратить внимание на интенсивность процесса денитрификации">*/}
+                                    {/*            <Badge dot>*/}
+                                    {/*                {getValue(3, 'temperature')}*/}
+                                    {/*            </Badge>*/}
+                                    {/*        </Tooltip> :*/}
+                                    {/*        <>{getValue(3, 'temperature')}</>*/}
+                                    {/*}*/}
                                 </td>
                                 <td>
-                                    {
-                                        !(tableValues.bbo4.temp.min < getValue(4, 'temperature')) ?
-                                            <Tooltip
-                                                title="Необходимо обратить внимание на интенсивность процесса денитрификации">
-                                                <Badge dot>
-                                                    {getValue(4, 'temperature')}
-                                                </Badge>
-                                            </Tooltip> :
-                                            <>{getValue(4, 'temperature')}</>
-                                    }
+                                    {/*{*/}
+                                    {/*    !(tableValues.bbo4.temp.min < getValue(4, 'temperature')) ?*/}
+                                    {/*        <Tooltip*/}
+                                    {/*            title="Необходимо обратить внимание на интенсивность процесса денитрификации">*/}
+                                    {/*            <Badge dot>*/}
+                                    {/*                {getValue(4, 'temperature')}*/}
+                                    {/*            </Badge>*/}
+                                    {/*        </Tooltip> :*/}
+                                    {/*        <>{getValue(4, 'temperature')}</>*/}
+                                    {/*}*/}
                                 </td>
                             </tr>
 
@@ -604,7 +597,7 @@ const Recommendations = () => {
                             </tr>
 
                             <tr>
-                                <td>Датчик уровня ила</td>
+                                <td>Уровень ила</td>
                                 <td>
                                     {
                                         !(tableValues.bbo1.excess_sludge_level.max > getValue(1, 'silt_level')) ?
@@ -736,7 +729,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.pH.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -754,7 +747,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.pH.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -773,7 +766,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.pH.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -791,7 +784,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.pH.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -810,7 +803,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.pH.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -828,7 +821,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.pH.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -847,7 +840,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.pH.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -865,7 +858,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.pH.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -889,7 +882,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.OVP.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -908,7 +901,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.OVP.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -927,7 +920,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.OVP.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -946,7 +939,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.OVP.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -968,7 +961,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.temp.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -987,7 +980,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.temp.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -1006,7 +999,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.temp.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -1025,7 +1018,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.temp.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -1048,7 +1041,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.avg_sludge_dose.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -1066,7 +1059,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.avg_sludge_dose.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -1085,7 +1078,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.avg_sludge_dose.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -1103,7 +1096,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.avg_sludge_dose.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -1122,7 +1115,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.avg_sludge_dose.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -1140,7 +1133,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.avg_sludge_dose.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -1159,7 +1152,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.avg_sludge_dose.min}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -1177,7 +1170,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.avg_sludge_dose.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -1201,7 +1194,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo1.excess_sludge_level.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo1:
                                                                 {
@@ -1220,7 +1213,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo2.excess_sludge_level.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo2:
                                                                 {
@@ -1239,7 +1232,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo3.excess_sludge_level.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo3:
                                                                 {
@@ -1258,7 +1251,7 @@ const Recommendations = () => {
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.bbo4.excess_sludge_level.max}
                                                         style={{width: "50px"}}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev, bbo4:
                                                                 {
@@ -1287,7 +1280,7 @@ const Recommendations = () => {
                                                     <InputNumber
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.max_flow_rate}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev,
                                                             max_flow_rate: e
@@ -1302,7 +1295,7 @@ const Recommendations = () => {
                                                     <InputNumber
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.max_xpk}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev,
                                                             max_xpk: e
@@ -1317,7 +1310,7 @@ const Recommendations = () => {
                                                     <InputNumber
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.duration_xpk}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({
                                                             ...prev,
                                                             duration_xpk: e

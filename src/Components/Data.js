@@ -2,9 +2,12 @@ import styles from "../styles/Data.module.css"
 import {useRecoilValue, useSetRecoilState} from "recoil";
 import {messagesAtom} from "../state/messages";
 import React, {useEffect, useState} from "react";
-import {message} from "antd";
+import {ConfigProvider, Form, InputNumber, message} from "antd";
 import {wsAPI} from "../helpers/const";
-import Mode from "./Mode";
+import MainParameters from "./Tables/MainParameters";
+import Recycles from "./Tables/Recycles";
+import OxygenConcSensors from "./Tables/OxygenConcSensors";
+import DampersAirDucts from "./Tables/DampersAirDucts";
 
 // import {w3cwebsocket as W3CWebSocket} from "websocket";
 
@@ -84,598 +87,445 @@ function Data() {
         });
     };
 
-    const convertUnicode = (unicode) => {
-        let enc = encodeURIComponent(unicode)
-
-        return decodeURIComponent(enc)
-    }
-
-    const mockData = {
-        "bbo1": [{
-            "name": "valve_4",
-            "value": 27.0,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:03",
-            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 4",
-            "bbo_id": 1
-        }, {
-            "name": "valve_3",
-            "value": 21.0,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:01",
-            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 3",
-            "bbo_id": 1
-        }, {
-            "name": "valve_2",
-            "value": 61.0,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:59",
-            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 2",
-            "bbo_id": 1
-        }, {
-            "name": "valve_1",
-            "value": 47.0,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:57",
-            "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 1",
-            "bbo_id": 1
-        }, {
-            "name": "OVP",
-            "value": -40.81578063964844,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:55",
-            "rus_name": "\u041e\u0412\u041f",
-            "bbo_id": 1
-        }, {
-            "name": "air_consumption",
-            "value": 1.6573116779327393,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:53",
-            "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0437\u0434\u0443\u0445\u0430",
-            "bbo_id": 1
-        }, {
-            "name": "consumption_silt_level",
-            "value": 0.5885303616523743,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:51",
-            "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0438\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u043e\u0433\u043e \u0438\u043b\u0430",
-            "bbo_id": 1
-        }, {
-            "name": "redundant_silt_level",
-            "value": 1.3678386211395264,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:49",
-            "rus_name": "\u0418\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-            "bbo_id": 1
-        }, {
-            "name": "silt_level",
-            "value": 6.618844985961914,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:46",
-            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-            "bbo_id": 1
-        }, {
-            "name": "temperature",
-            "value": 17.038471221923828,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:44",
-            "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
-            "bbo_id": 1
-        }, {
-            "name": "acidity",
-            "value": 1.4006907939910889,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:42",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 1
-        }, {
-            "name": "turbidity",
-            "value": 2.884554862976074,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:24:40",
-            "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 1
-        }],
-        "bbo2": [{
-            "name": "silt_level",
-            "value": 0.595528781414032,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:14",
-            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-            "bbo_id": 2
-        }, {
-            "name": "temperature",
-            "value": 14.293558120727539,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:12",
-            "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
-            "bbo_id": 2
-        }, {
-            "name": "OVP",
-            "value": -489.6000061035156,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:10",
-            "rus_name": "\u041e\u0412\u041f",
-            "bbo_id": 2
-        }, {
-            "name": "acidity",
-            "value": 7.358160495758057,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:07",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 2
-        }, {
-            "name": "oxygen",
-            "value": 0.1991599053144455,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:05",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-            "bbo_id": 2
-        }],
-        "bbo3": [{
-            "name": "silt_level",
-            "value": 1.6573116779327393,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:24",
-            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-            "bbo_id": 3
-        }, {
-            "name": "oxygen",
-            "value": 0.0,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:22",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-            "bbo_id": 3
-        }, {
-            "name": "turbidity",
-            "value": 3.5643181800842285,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:20",
-            "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 3
-        }, {
-            "name": "acidity",
-            "value": 6.303897380828857,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:18",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 3
-        }, {
-            "name": "OVP",
-            "value": -427.0999755859375,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:16",
-            "rus_name": "\u041e\u0412\u041f",
-            "bbo_id": 3
-        }],
-        "bbo4": [{
-            "name": "silt_level",
-            "value": 0.5885303616523743,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:35",
-            "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
-            "bbo_id": 4
-        }, {
-            "name": "oxygen",
-            "value": 0.07040954381227493,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:33",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
-            "bbo_id": 4
-        }, {
-            "name": "turbidity",
-            "value": 12.971511840820312,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:31",
-            "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 4
-        }, {
-            "name": "acidity",
-            "value": 6.252176284790039,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:28",
-            "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
-            "bbo_id": 4
-        }, {
-            "name": "OVP",
-            "value": -426.3999938964844,
-            "is_main": true,
-            "is_masked": false,
-            "is_ready": true,
-            "is_accident": false,
-            "time": "01.02.2024 11:25:26",
-            "rus_name": "\u041e\u0412\u041f",
-            "bbo_id": 4
-        }]
-    }
+    const messages2 = [
+        {
+            "bbo1": [{
+                "name": "oxygen",
+                "value": 0.5182511210441589,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:55",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 1
+            }, {
+                "name": "valve_4",
+                "value": 27.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:53",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 4",
+                "bbo_id": 1
+            }, {
+                "name": "valve_3",
+                "value": 21.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:51",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 3",
+                "bbo_id": 1
+            }, {
+                "name": "valve_2",
+                "value": 61.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:49",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 2",
+                "bbo_id": 1
+            }, {
+                "name": "valve_1",
+                "value": 47.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:46",
+                "rus_name": "\u0417\u0430\u0434\u0432\u0438\u0436\u043a\u0430 1",
+                "bbo_id": 1
+            }, {
+                "name": "OVP",
+                "value": -53.623626708984375,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:44",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 1
+            }, {
+                "name": "silt_level",
+                "value": 6.6781110763549805,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:36",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 1
+            }, {
+                "name": "temperature",
+                "value": 15.36093521118164,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:34",
+                "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
+                "bbo_id": 1
+            }, {
+                "name": "acidity",
+                "value": 1.615569829940796,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:32",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 1
+            }],
+            "bbo2": [{
+                "name": "silt_level",
+                "value": 0.6568394899368286,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:10",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 2
+            }, {
+                "name": "temperature",
+                "value": 13.360366821289062,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:07",
+                "rus_name": "\u0422\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430",
+                "bbo_id": 2
+            }, {
+                "name": "OVP",
+                "value": -487.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:05",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 2
+            }, {
+                "name": "acidity",
+                "value": 7.5731658935546875,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:03",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 2
+            }, {
+                "name": "oxygen",
+                "value": 0.810758650302887,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:01",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 2
+            }],
+            "bbo3": [{
+                "name": "silt_level",
+                "value": 1.520917296409607,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:20",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 3
+            }, {
+                "name": "oxygen",
+                "value": 0.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:18",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 3
+            }, {
+                "name": "turbidity",
+                "value": 0.028950994834303856,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:16",
+                "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 3
+            }, {
+                "name": "acidity",
+                "value": 6.5362019538879395,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:14",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 3
+            }, {
+                "name": "OVP",
+                "value": -447.5,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:12",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 3
+            }],
+            "bbo4": [{
+                "name": "silt_level",
+                "value": 0.7025508880615234,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:31",
+                "rus_name": "\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 4
+            }, {
+                "name": "oxygen",
+                "value": 0.0,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:29",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0440\u043e\u0434",
+                "bbo_id": 4
+            }, {
+                "name": "turbidity",
+                "value": 6.607088565826416,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:27",
+                "rus_name": "\u041c\u0443\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 4
+            }, {
+                "name": "acidity",
+                "value": 6.61706018447876,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:24",
+                "rus_name": "\u041a\u0438\u0441\u043b\u043e\u0442\u043d\u043e\u0441\u0442\u044c",
+                "bbo_id": 4
+            }, {
+                "name": "OVP",
+                "value": -452.00006103515625,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:06:22",
+                "rus_name": "\u041e\u0412\u041f",
+                "bbo_id": 4
+            }],
+            "common": [{
+                "name": "water_consumption_out",
+                "value": 213.7173309326172,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:59",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0434\u044b \u0432\u044b\u0445\u043e\u0434",
+                "bbo_id": 5
+            }, {
+                "name": "water_consumption_in",
+                "value": 470.92333984375,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:57",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0434\u044b \u0432\u0445\u043e\u0434",
+                "bbo_id": 5
+            }, {
+                "name": "air_consumption",
+                "value": 1.520917296409607,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:42",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0432\u043e\u0437\u0434\u0443\u0445\u0430",
+                "bbo_id": 5
+            }, {
+                "name": "consumption_silt_level",
+                "value": 0.7025508880615234,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:40",
+                "rus_name": "\u0420\u0430\u0441\u0445\u043e\u0434 \u0438\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u043e\u0433\u043e \u0438\u043b\u0430",
+                "bbo_id": 5
+            }, {
+                "name": "redundant_silt_level",
+                "value": 0.9314670562744141,
+                "is_main": true,
+                "is_masked": false,
+                "is_ready": true,
+                "is_accident": false,
+                "time": "08.02.2024 16:05:38",
+                "rus_name": "\u0418\u0437\u0431\u044b\u0442\u043e\u0447\u043d\u044b\u0439 \u0443\u0440\u043e\u0432\u0435\u043d\u044c \u0438\u043b\u0430",
+                "bbo_id": 5
+            }]
+        }
+    ]
 
     return (
         <>
-            {contextHolder}
+            {/*{contextHolder}*/}
             <div className={styles.container}>
                 <h3 className={styles.title}>Главный экран</h3>
 
 
-                <div className={styles.containerInner}>
-                    {
-                        messages.length !== 0 ?
-                            [...messages].pop()?.status !== "connected" ?
-                                <div className={styles.containerInner}>
-                                    <div key={1} className={styles.rowContainer}>
-                                            <span className={styles.rowTitle}>
-                                                ББО 1
-                                            </span>
-                                        {
-                                            [...messages].pop()?.bbo1?.map((data, i) => (
-                                                <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
+                <div className={styles.paramsContainer}>
+                    <ConfigProvider theme={{
+                        token: {
+                            fontFamily: "Euclid Circular A",
+                        }
+                    }}>
+                        <Form className={styles.form}>
 
-                                                    <div className={styles.valuesContainer}>
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
-                                                            </div>
-                                                        </div>
+                            <table className={styles.table} style={{borderBottom: '0'}}>
+                                <tr>
+                                    <th>Параметр</th>
+                                    <th>Значение</th>
+                                </tr>
+                                <tr>
+                                    <td>Вход на ОС</td>
+                                    <td>{[...messages].pop()?.common.filter(obj => obj.name === 'water_consumption_in')[0]?.value.toFixed(1)} м³/ч</td>
+                                </tr>
 
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Время</span>
-                                                                <span className={styles.value}>{data.time}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                <tr>
+                                    <td>Выход с ОС</td>
+                                    <td>{[...messages].pop()?.common.filter(obj => obj.name === 'water_consumption_out')[0]?.value.toFixed(1)} м³/ч</td>
+                                </tr>
 
-                                                    <div className={styles.statusContainer}>
-                                                        <span className={styles.text}>Статус</span>
-                                                        <Mode title="Работает"/>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
+                                <tr>
+                                    <td>ХПК на входе в ОС</td>
+                                    <td>450 мг/дм³</td>
+                                </tr>
+                            </table>
 
-                                    <div key={2} className={styles.rowContainer}>
-                                            <span className={styles.rowTitle}>
-                                                ББО 2
-                                            </span>
-                                        {
-                                            [...messages].pop()?.bbo2?.map((data, i) => (
-                                                <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
 
-                                                    <div className={styles.valuesContainer}>
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
-                                                            </div>
-                                                        </div>
+                            <table className={styles.table} style={{borderBottom: '0'}}>
+                                <tr>
+                                    <th>Параметр</th>
+                                    <th>Значение</th>
+                                    <th>min</th>
+                                    <th>max</th>
+                                </tr>
+                                <tr>
+                                    <td>Средн. рассчит. потребн. в кислороде</td>
+                                    <td>520 мг/дм³</td>
+                                    <td>
+                                        <InputNumber
+                                            disabled
+                                            defaultValue={400}
+                                            style={{width: "50px"}}
+                                            variant='borderless' min={0} max={2000}
+                                        />
+                                        <span>мг/дм³</span>
+                                    </td>
+                                    <td>
+                                        <InputNumber
+                                            disabled
+                                            defaultValue={700}
+                                            style={{width: "50px"}}
+                                            variant='borderless' min={0} max={2000}
+                                        />
+                                        <span>мг/дм³</span>
+                                    </td>
+                                </tr>
 
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Время</span>
-                                                                <span className={styles.value}>{data.time}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                <tr>
+                                    <td>Текущее потребление воздуха</td>
+                                    <td colSpan={3}>{[...messages].pop()?.common.filter(obj => obj.name === 'air_consumption')[0]?.value.toFixed(1)} м³/
+                                        1м³ сточных вод
+                                    </td>
+                                </tr>
+                            </table>
 
-                                                    <div className={styles.statusContainer}>
-                                                        <span className={styles.text}>Статус</span>
-                                                        <Mode title="Работает"/>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
+                            <table className={styles.table} style={{borderBottom: '0'}}>
+                                <tr>
+                                    <th>Параметр</th>
+                                    <th>Значение</th>
+                                    <th>min</th>
+                                    <th>max</th>
+                                </tr>
+                                <tr>
+                                    <td>Текущее давление в трубопроводе</td>
+                                    <td>520 кПа</td>
+                                    <td>
+                                        <InputNumber
+                                            disabled
+                                            defaultValue={400}
+                                            style={{width: "50px"}}
+                                            variant='borderless' min={0} max={2000}
+                                        />
+                                        <span>кПа</span>
+                                    </td>
+                                    <td>
+                                        <InputNumber
+                                            disabled
+                                            defaultValue={700}
+                                            style={{width: "50px"}}
+                                            variant='borderless' min={0} max={2000}
+                                        />
+                                        <span>кПа</span>
+                                    </td>
+                                </tr>
 
-                                    <div key={3} className={styles.rowContainer}>
-                                            <span className={styles.rowTitle}>
-                                                ББО 3
-                                            </span>
-                                        {
-                                            [...messages].pop()?.bbo3?.map((data, i) => (
-                                                <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
+                                <tr>
+                                    <td>Заданн. производит. воздуходувок</td>
+                                    <td>25 %</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
 
-                                                    <div className={styles.valuesContainer}>
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
-                                                            </div>
-                                                        </div>
+                            <table className={styles.table} style={{borderBottom: '0'}}>
+                                <tr>
+                                    <th>Параметр</th>
+                                    <th>Значение</th>
+                                </tr>
+                                <tr>
+                                    <td>Шаг регулирования</td>
+                                    <td>5 %</td>
+                                </tr>
 
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Время</span>
-                                                                <span className={styles.value}>{data.time}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                <tr>
+                                    <td>Частота регулированияк</td>
+                                    <td>7 мин</td>
+                                </tr>
+                            </table>
 
-                                                    <div className={styles.statusContainer}>
-                                                        <span className={styles.text}>Статус</span>
-                                                        <Mode title="Работает"/>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
+                        </Form>
 
-                                    <div key={4} className={styles.rowContainer}>
-                                            <span className={styles.rowTitle}>
-                                                ББО 4
-                                            </span>
-                                        {
-                                            [...messages].pop()?.bbo4?.map((data, i) => (
-                                                <div key={i} className={styles.cardContainer}>
-                                                    <span className={styles.paramName}>{convertUnicode(data.rus_name)}</span>
-
-                                                    <div className={styles.valuesContainer}>
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/valueIcon.svg" alt="value"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Показания</span>
-                                                                <span className={styles.value}>{data.value.toFixed(1)}</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className={styles.valueWrapper}>
-                                                            <img src="/dateIcon.svg" alt="date"
-                                                                 className={styles.icon}/>
-                                                            <div className={styles.valueInnerWrapper}>
-                                                                <span className={styles.value}>Время</span>
-                                                                <span className={styles.value}>{data.time}</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className={styles.statusContainer}>
-                                                        <span className={styles.text}>Статус</span>
-                                                        <Mode title="Работает"/>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                </div> :
-                                <div className={styles.cardContainer}>
-                                    <span className={styles.paramName}>Датчик</span>
-
-                                    <div className={styles.valuesContainer}>
-                                        <div className={styles.valueWrapper}>
-                                            <img src="/valueIcon.svg" alt="" className="icon"/>
-                                            <div className={styles.valueInnerWrapper}>
-                                                <span className={styles.value}>Показания</span>
-                                                <span className={styles.value}>Подключение к серверу...</span>
-                                            </div>
-                                        </div>
-
-                                        <div className={styles.valueWrapper}>
-                                            <img src="/dateIcon.svg" alt="" className="icon"/>
-                                            <div className={styles.valueInnerWrapper}>
-                                                <span className={styles.value}>Время</span>
-                                                <span className={styles.value}>Подключение к серверу...</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className={styles.statusContainer}>
-                                        <span className={styles.text}>Статус</span>
-                                        <Mode title="Подключение"/>
-                                    </div>
-                                </div> :
-
-                            <div className={styles.cardContainer}>
-                                <span className={styles.paramName}>Датчик</span>
-
-                                <div className={styles.valuesContainer}>
-                                    <div className={styles.valueWrapper}>
-                                        <img src="/valueIcon.svg" alt="" className="icon"/>
-                                        <div className={styles.valueInnerWrapper}>
-                                            <span className={styles.value}>Показания</span>
-                                            <span className={styles.value}>-</span>
-                                        </div>
-                                    </div>
-
-                                    <div className={styles.valueWrapper}>
-                                        <img src="/dateIcon.svg" alt="" className="icon"/>
-                                        <div className={styles.valueInnerWrapper}>
-                                            <span className={styles.value}>Время</span>
-                                            <span className={styles.value}>-</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={styles.statusContainer}>
-                                    <span className={styles.text}>Статус</span>
-                                    <Mode title="Подключение"/>
-                                </div>
-                            </div>
-                    }
+                        <div style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: "45px"}}>
+                            <MainParameters/>
+                            <Recycles/>
+                            <DampersAirDucts/>
+                            <OxygenConcSensors/>
+                        </div>
+                    </ConfigProvider>
                 </div>
-
-
-                {/*<div className={styles.containerInner}>*/}
-                {/*    {*/}
-                {/*        messages.length !== 0 ?*/}
-                {/*            [...messages].pop()?.status !== "connected" ?*/}
-                {/*                [...messages].pop()?.data.map((data, i) => (*/}
-
-                {/*                    <div key={i} className={styles.cardContainer}>*/}
-                {/*                        <span className={styles.paramName}>{data.name}</span>*/}
-
-                {/*                        <div className={styles.valuesContainer}>*/}
-                {/*                            <div className={styles.valueWrapper}>*/}
-                {/*                                <img src="/valueIcon.svg" alt="value" className={styles.icon}/>*/}
-                {/*                                <div className={styles.valueInnerWrapper}>*/}
-                {/*                                    <span className={styles.value}>Показания</span>*/}
-                {/*                                    <span className={styles.value}>{data.value}</span>*/}
-                {/*                                </div>*/}
-                {/*                            </div>*/}
-
-                {/*                            <div className={styles.valueWrapper}>*/}
-                {/*                                <img src="/dateIcon.svg" alt="date" className={styles.icon}/>*/}
-                {/*                                <div className={styles.valueInnerWrapper}>*/}
-                {/*                                    <span className={styles.value}>Время</span>*/}
-                {/*                                    <span className={styles.value}>{data.time}</span>*/}
-                {/*                                </div>*/}
-                {/*                            </div>*/}
-                {/*                        </div>*/}
-
-                {/*                        <div className={styles.statusContainer}>*/}
-                {/*                            <span className={styles.text}>Статус</span>*/}
-                {/*                            <Mode title="Работает"/>*/}
-                {/*                        </div>*/}
-                {/*                    </div>*/}
-                {/*                )) :*/}
-                {/*                <div className={styles.cardContainer}>*/}
-                {/*                    <span className={styles.paramName}>Датчик</span>*/}
-
-                {/*                    <div className={styles.valuesContainer}>*/}
-                {/*                        <div className={styles.valueWrapper}>*/}
-                {/*                            <img src="/valueIcon.svg" alt="" className="icon"/>*/}
-                {/*                            <div className={styles.valueInnerWrapper}>*/}
-                {/*                                <span className={styles.value}>Показания</span>*/}
-                {/*                                <span className={styles.value}>Подключение к серверу...</span>*/}
-                {/*                            </div>*/}
-                {/*                        </div>*/}
-
-                {/*                        <div className={styles.valueWrapper}>*/}
-                {/*                            <img src="/dateIcon.svg" alt="" className="icon"/>*/}
-                {/*                            <div className={styles.valueInnerWrapper}>*/}
-                {/*                                <span className={styles.value}>Время</span>*/}
-                {/*                                <span className={styles.value}>Подключение к серверу...</span>*/}
-                {/*                            </div>*/}
-                {/*                        </div>*/}
-                {/*                    </div>*/}
-
-                {/*                    <div className={styles.statusContainer}>*/}
-                {/*                        <span className={styles.text}>Статус</span>*/}
-                {/*                        <Mode title="Подключение"/>*/}
-                {/*                    </div>*/}
-                {/*                </div> :*/}
-
-                {/*            <div className={styles.cardContainer}>*/}
-                {/*                <span className={styles.paramName}>Датчик</span>*/}
-
-                {/*                <div className={styles.valuesContainer}>*/}
-                {/*                    <div className={styles.valueWrapper}>*/}
-                {/*                        <img src="/valueIcon.svg" alt="" className="icon"/>*/}
-                {/*                        <div className={styles.valueInnerWrapper}>*/}
-                {/*                            <span className={styles.value}>Показания</span>*/}
-                {/*                            <span className={styles.value}>-</span>*/}
-                {/*                        </div>*/}
-                {/*                    </div>*/}
-
-                {/*                    <div className={styles.valueWrapper}>*/}
-                {/*                        <img src="/dateIcon.svg" alt="" className="icon"/>*/}
-                {/*                        <div className={styles.valueInnerWrapper}>*/}
-                {/*                            <span className={styles.value}>Время</span>*/}
-                {/*                            <span className={styles.value}>-</span>*/}
-                {/*                        </div>*/}
-                {/*                    </div>*/}
-                {/*                </div>*/}
-
-                {/*                <div className={styles.statusContainer}>*/}
-                {/*                    <span className={styles.text}>Статус</span>*/}
-                {/*                    <Mode title="Подключение"/>*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-                {/*    }*/}
-                {/*</div>*/}
             </div>
         </>
     )

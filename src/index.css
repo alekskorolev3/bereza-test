@@ -89,6 +89,10 @@ code {
   height: 1px;
 }
 
+.ant-collapse-header-text {
+  font-weight: 600;
+}
+
 input {
   cursor: pointer;
 }

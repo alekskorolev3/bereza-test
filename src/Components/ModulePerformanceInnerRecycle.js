@@ -62,27 +62,6 @@ const ModulePerformanceInnerRecycle = () => {
                             </span>
                                 </Form.Item>
 
-                                <Form.Item label="Нижнее значение частоты работы: " className={styles.formItem}>
-                                    <Form.Item name="mid_low_freq_value" noStyle
-                                               rules={[{required: true, message: "Необходимо ввести значение"}]}>
-                                        <InputNumber min={0} max={1}/>
-                                    </Form.Item>
-                                    <span className={styles.formSuffix}>
-                                Гц
-                            </span>
-                                </Form.Item>
-
-                                <Form.Item label="Верхнее значение частоты работы: "
-                                           className={styles.formItem}>
-                                    <Form.Item name="mid_high_freq_value" noStyle
-                                               rules={[{required: true, message: "Необходимо ввести значение"}]}>
-                                        <InputNumber/>
-                                    </Form.Item>
-                                    <span className={styles.formSuffix}>
-                                Гц
-                            </span>
-                                </Form.Item>
-
                                 <Button type="primary" htmlType="submit"
                                         style={{backgroundColor: "#00A3E7", fontWeight: 500}}>
                                     Отправить
@@ -114,26 +93,6 @@ const ModulePerformanceInnerRecycle = () => {
                             </span>
                                 </Form.Item>
 
-                                <Form.Item label="Нижнее значение частоты работы: " className={styles.formItem}>
-                                    <Form.Item name="max_low_freq_value" noStyle
-                                               rules={[{required: true, message: "Необходимо ввести значение"}]}>
-                                        <InputNumber min={0} max={1}/>
-                                    </Form.Item>
-                                    <span className={styles.formSuffix}>
-                                Гц
-                            </span>
-                                </Form.Item>
-
-                                <Form.Item label="Верхнее значение частоты работы: "
-                                           className={styles.formItem}>
-                                    <Form.Item name="max_high_freq_value" noStyle
-                                               rules={[{required: true, message: "Необходимо ввести значение"}]}>
-                                        <InputNumber/>
-                                    </Form.Item>
-                                    <span className={styles.formSuffix}>
-                                Гц
-                            </span>
-                                </Form.Item>
                             </div>
                         </div>
 

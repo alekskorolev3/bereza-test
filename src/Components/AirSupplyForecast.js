@@ -94,14 +94,14 @@ const AirSupplyForecast = () => {
                                 <td>
                                     <InputNumber
                                         defaultValue={tableValues.ammoniaNitrogenInput}
-                                        bordered={false} min={0} max={200}
+                                        variant='borderless' min={0} max={200}
                                         onChange={(e) => setTableValues(prev => ({...prev, ammoniaNitrogenInput: e}))}
                                     />
                                 </td>
                                 <td>
                                     <InputNumber
                                         defaultValue={tableValues.ammoniaNitrogenOutput}
-                                        bordered={false} min={0} max={200}
+                                        variant='borderless' min={0} max={200}
                                         onChange={(e) => setTableValues(prev => ({...prev, ammoniaNitrogenOutput: e}))}
                                     />
                                 </td>
@@ -111,14 +111,14 @@ const AirSupplyForecast = () => {
                                 <td>
                                     <InputNumber
                                         defaultValue={tableValues.bpkInput}
-                                        bordered={false} min={0} max={1000}
+                                        variant='borderless' min={0} max={1000}
                                         onChange={(e) => setTableValues(prev => ({...prev, bpkInput: e}))}
                                     />
                                 </td>
                                 <td>
                                     <InputNumber
                                         defaultValue={tableValues.bpkOutput}
-                                        bordered={false} min={0} max={2000}
+                                        variant='borderless' min={0} max={2000}
                                         onChange={(e) => setTableValues(prev => ({...prev, bpkOutput: e}))}
                                     />
                                 </td>
@@ -129,7 +129,7 @@ const AirSupplyForecast = () => {
                                 <td colSpan={2}>
                                     <InputNumber
                                         defaultValue={tableValues.incomingWastewater}
-                                        bordered={false} min={0} max={20000}
+                                        variant='borderless' min={0} max={20000}
                                         onChange={(e) => setTableValues(prev => ({...prev, incomingWastewater: e}))}
                                     />
                                 </td>
@@ -144,7 +144,7 @@ const AirSupplyForecast = () => {
                                 <td colSpan={2}>
                                     <InputNumber
                                         defaultValue={tableValues.temp}
-                                        bordered={false} min={0} max={200}
+                                        variant='borderless' min={0} max={200}
                                         onChange={(e) => setTableValues(prev => ({...prev, temp: e}))}
                                     />
                                 </td>
@@ -152,7 +152,12 @@ const AirSupplyForecast = () => {
 
                             <tr>
                                 <td>Растворимость кислорода в воде</td>
-                                <td colSpan={2}>{tableValues.solubility}</td>
+                                <td colSpan={2}>
+                                    <InputNumber
+                                        defaultValue={tableValues.solubility}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                             </tr>
 
                             <tr>
@@ -160,7 +165,7 @@ const AirSupplyForecast = () => {
                                 <td colSpan={2}>
                                     <InputNumber
                                         defaultValue={tableValues.totalNitrogen}
-                                        bordered={false} min={0} max={200}
+                                        variant='borderless' min={0} max={200}
                                         onChange={(e) => setTableValues(prev => ({...prev, totalNitrogen: e}))}
                                     />
                                 </td>
@@ -168,27 +173,52 @@ const AirSupplyForecast = () => {
 
                             <tr>
                                 <td>Азот органических веществ на выходе из аэротенков, мг/дм³</td>
-                                <td colSpan={2}>{tableValues.organicNitrogen}</td>
+                                <td colSpan={2}>
+                                    <InputNumber
+                                        defaultValue={tableValues.organicNitrogen}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Азот аммонийный на выходе из аэротенков, мг/дм³</td>
-                                <td colSpan={2}>{tableValues.ammoniaNitrogenAeroOutlet}</td>
+                                <td colSpan={2}>
+                                    <InputNumber
+                                        defaultValue={tableValues.ammoniaNitrogenAeroOutlet}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Азот нитратный на выходе из аэротенков, мг/дм³</td>
-                                <td colSpan={2}>{tableValues.ammoniaNitrogenAeroOutlet}</td>
+                                <td colSpan={2}>
+                                    <InputNumber
+                                        defaultValue={tableValues.nitrateNitrogenAuroOutlet.toFixed(1)}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Концентрация азота потребляемого микроорганизмами, мг/дм³</td>
-                                <td colSpan={2}>{tableValues.concNitrogenMicroorg}</td>
+                                <td colSpan={2}>
+                                    <InputNumber
+                                        defaultValue={tableValues.concNitrogenMicroorg.toFixed(1)}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>Азот подлежащий денитрификации, мг/дм³</td>
-                                <td colSpan={2}>{tableValues.denitrificationNitrogen}</td>
+                                <td colSpan={2}>
+                                    <InputNumber
+                                        defaultValue={tableValues.denitrificationNitrogen.toFixed(1)}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                             </tr>
 
                             <tr>
@@ -196,7 +226,7 @@ const AirSupplyForecast = () => {
                                 <td colSpan={2}>
                                     <InputNumber
                                         defaultValue={tableValues.activatedSlugdeDose}
-                                        bordered={false} min={0} max={200}
+                                        variant='borderless' min={0} max={200}
                                         onChange={(e) => setTableValues(prev => ({...prev, activatedSlugdeDose: e}))}
                                     />
                                 </td>
@@ -212,7 +242,12 @@ const AirSupplyForecast = () => {
                             </tr>
 
                             <tr>
-                                <td style={{borderBottom: 'none'}}>{tableValues.airSupplyAero}</td>
+                                <td style={{borderBottom: 'none'}}>
+                                    <InputNumber
+                                        defaultValue={tableValues.airSupplyAero.toFixed(1)}
+                                        variant='borderless' disabled={true}
+                                    />
+                                </td>
                                 <td colSpan={2} style={{borderBottom: 'none'}}>
 
                                     {
@@ -221,10 +256,10 @@ const AirSupplyForecast = () => {
                                     либо проверить промышленные промпредприятия на наличие сброса высококонцентрированных сточных вод,
                                     которые не соответствуют нормативу Правил сброса сточных вод в городскую канализационную сеть ">
                                                 <Badge dot>
-                                                    {tableValues.Qair}
+                                                    {tableValues.Qair.toFixed(1)}
                                                 </Badge>
                                             </Tooltip> :
-                                            <>{tableValues.Qair}</>
+                                            <>{tableValues.Qair.toFixed(1)}</>
                                     }
 
 
@@ -250,42 +285,82 @@ const AirSupplyForecast = () => {
 
                                             <tr>
                                                 <td>В, кг</td>
-                                                <td colSpan={2}>{tableValues.B}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.B.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>OVc, кг</td>
-                                                <td colSpan={2}>{tableValues.OVc}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.OVc.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>OVn, кг</td>
-                                                <td colSpan={2}>{tableValues.OVn}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.OVn.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>OVd, кг</td>
-                                                <td colSpan={2}>{tableValues.OVd}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.OVd.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>OV, кгO₂</td>
-                                                <td colSpan={2}>{tableValues.OVO2}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.OVO2.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>OV, кгO₂/h</td>
-                                                <td colSpan={2}>{tableValues.OVO2h}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.OVO2h.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>OVmax, кгO₂/h</td>
-                                                <td colSpan={2}>{tableValues.OVMax}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.OVMax.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>q0, кг/h</td>
-                                                <td colSpan={2}>{tableValues.q0}</td>
+                                                <td colSpan={2}>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.q0.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
@@ -297,7 +372,7 @@ const AirSupplyForecast = () => {
                                                 <td>
                                                     <InputNumber
                                                     defaultValue={tableValues.q0aero}
-                                                    bordered={false} min={0} max={200}
+                                                    variant='borderless' min={0} max={200}
                                                     disabled={!isEdit}
                                                     onChange={(e) => setTableValues(prev => ({...prev, q0aero: e}))}
                                                     />
@@ -306,17 +381,32 @@ const AirSupplyForecast = () => {
 
                                             <tr>
                                                 <td>h,м</td>
-                                                <td>{tableValues.h}</td>
+                                                <td>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.h.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>SOTE общее</td>
-                                                <td>{tableValues.SOTE}</td>
+                                                <td>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.SOTE.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Qвозд, м³/h</td>
-                                                <td>{tableValues.Qair}</td>
+                                                <td>
+                                                    <InputNumber
+                                                        defaultValue={tableValues.Qair.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
+                                                </td>
                                             </tr>
                                         </table>,
                                     extra: <Switch

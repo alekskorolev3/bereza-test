@@ -44,12 +44,6 @@ const Menu = () => {
                         </li>
                     </NavLink>
 
-
-                    <li className={styles.menuItem}>
-                        <img src="/setting-2.svg" alt="setting"/>
-                        <span className={styles.menuText}>Режим работы</span>
-                    </li>
-
                     <li className={styles.menuItem}>
                         <img src="/setting-2.svg" alt="setting"/>
                         <span className={styles.menuText}>Настройка модулей управления</span>
@@ -66,6 +60,13 @@ const Menu = () => {
                                 <div className={styles.menuItem}>
                                     <img src="/setting-3.svg" alt="setting3"/>
                                     <span className={styles.menuText}>Настройка производительности внутренних рециклов</span>
+                                </div>
+                            </NavLink>
+
+                            <NavLink to="/settingsGatesDistributorBowl">
+                                <div className={styles.menuItem}>
+                                    <img src="/setting-3.svg" alt="setting3"/>
+                                    <span className={styles.menuText}>Настройка затворов распределительной чаши</span>
                                 </div>
                             </NavLink>
                         </div>
@@ -94,7 +95,7 @@ const Menu = () => {
 
                     <li className={styles.menuItem}>
                         <img src="/filter-search.svg" alt="filter"/>
-                        <span className={styles.menuText}>Прогнозирование</span>
+                        <span className={styles.menuText}>Прогнозы и рекомендации</span>
 
                         <div className={styles.submenuContainer}>
                             <NavLink to="/airSupplyForecast">

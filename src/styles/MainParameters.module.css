@@ -1,0 +1,13 @@
+.oxygenConcSensorsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.title {
+    color: #5D676F;
+    font-weight: 600;
+    margin: 0;
+}

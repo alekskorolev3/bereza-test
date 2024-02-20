@@ -69,14 +69,14 @@ const SludgeStationForecast = () => {
                             <tr>
                                 <td>Избыточный ил</td>
                                 <td>
-                                    {tableValues.excessSludge}
+                                    {tableValues.excessSludge.toFixed(1)}
                                 </td>
                             </tr>
 
                             <tr>
                                 <td>Сырой осадок</td>
                                 <td>
-                                    {tableValues.V}
+                                    {tableValues.V.toFixed(1)}
                                 </td>
                             </tr>
 
@@ -85,7 +85,7 @@ const SludgeStationForecast = () => {
                             </tr>
                             <tr>
                                 <td colSpan={2}>
-                                    {tableValues.operatingHours}
+                                    {tableValues.operatingHours.toFixed(1)}
                                 </td>
                             </tr>
                         </table>
@@ -113,7 +113,7 @@ const SludgeStationForecast = () => {
                                                     <InputNumber
                                                         defaultValue={tableValues.Qpac}
                                                         disabled={!isEdit}
-                                                        bordered={false} min={0} max={20000} step='0.1'
+                                                        variant='borderless' min={0} max={20000} step='0.1'
                                                         onChange={(e) => setTableValues(prev => ({...prev, Qpac: e}))}
                                                     />
                                                 </td>
@@ -125,7 +125,7 @@ const SludgeStationForecast = () => {
                                                     <InputNumber
                                                         defaultValue={tableValues.L5en}
                                                         disabled={!isEdit}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({...prev, L5en: e}))}
                                                     />
                                                 </td>
@@ -137,7 +137,7 @@ const SludgeStationForecast = () => {
                                                     <InputNumber
                                                         defaultValue={tableValues.Cen}
                                                         disabled={!isEdit}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({...prev, Cen: e}))}
                                                     />
                                                 </td>
@@ -149,7 +149,7 @@ const SludgeStationForecast = () => {
                                                     <InputNumber
                                                         defaultValue={tableValues.sludgeDose}
                                                         disabled={!isEdit}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({...prev, sludgeDose: e}))}
                                                     />
                                                 </td>
@@ -160,7 +160,7 @@ const SludgeStationForecast = () => {
                                                 <td>
                                                     <InputNumber
                                                         defaultValue={tableValues.Tts}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({...prev, Tts: e}))}
                                                     />
                                                 </td>
@@ -171,7 +171,7 @@ const SludgeStationForecast = () => {
                                                 <td>
                                                     <InputNumber
                                                         defaultValue={tableValues.T}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({...prev, T: e}))}
                                                     />
                                                 </td>
@@ -183,7 +183,7 @@ const SludgeStationForecast = () => {
                                                     <InputNumber
                                                         disabled={!isEdit}
                                                         defaultValue={tableValues.totalPhosphorus}
-                                                        bordered={false} min={0} max={2000}
+                                                        variant='borderless' min={0} max={2000}
                                                         onChange={(e) => setTableValues(prev => ({...prev, totalPhosphorus: e}))}
                                                     />
                                                 </td>
@@ -192,42 +192,60 @@ const SludgeStationForecast = () => {
                                             <tr>
                                                 <td>Pc, кг/сут</td>
                                                 <td>
-                                                    {tableValues.Pc}
+                                                    <InputNumber
+                                                        defaultValue={tableValues.Pc.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Pp, кг/сут</td>
                                                 <td>
-                                                    {tableValues.Pp}
+                                                    <InputNumber
+                                                        defaultValue={tableValues.Pp.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Pi, кг/сут</td>
                                                 <td>
-                                                    {tableValues.Pi}
+                                                    <InputNumber
+                                                        defaultValue={tableValues.Pi.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Избыточный ил, м³/сут</td>
                                                 <td>
-                                                    {tableValues.excessSludge}
+                                                    <InputNumber
+                                                        defaultValue={tableValues.excessSludge.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>Сырой осадок, кг/сут</td>
                                                 <td>
-                                                    {tableValues.rawSludge}
+                                                    <InputNumber
+                                                        defaultValue={tableValues.rawSludge.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>V, м³/сут</td>
                                                 <td>
-                                                    {tableValues.V}
+                                                    <InputNumber
+                                                        defaultValue={tableValues.V.toFixed(1)}
+                                                        variant='borderless' disabled={true}
+                                                    />
                                                 </td>
                                             </tr>
                                         </table>,

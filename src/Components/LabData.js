@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from "react"
 
 import styles from "../styles/ProjectParams.module.css"
-import {Button, ConfigProvider, Form, InputNumber, message, Modal, Select, Table} from "antd";
+import {Button, ConfigProvider, DatePicker, Form, InputNumber, message, Modal, Select, Table} from "antd";
 import {columns, convertFormValues} from "../helpers/labDataConst";
 import {useLabDataActions} from "../actions/lab.actions";
 import {convertTableData} from "../helpers/labDataConst";
 import {API} from "../helpers/const";
+import locale from 'antd/es/date-picker/locale/ru_RU';
+import 'dayjs/locale/ru';
 
 const LabData = () => {
 
@@ -72,6 +74,12 @@ const LabData = () => {
                                     <Select.Option value={3}>3</Select.Option>
                                     <Select.Option value={4}>4</Select.Option>
                                 </Select>
+                            </Form.Item>
+
+                            <Form.Item label="Дата и время отбора: " className={styles.formItem}>
+                                <Form.Item name="datetime" noStyle rules={[{ required: true, message: "Необходимо ввести значение"}]}>
+                                    <DatePicker showTime locale={locale}/>
+                                </Form.Item>
                             </Form.Item>
 
                             <Form.Item label="Доза ила по массе в аэротенке: " className={styles.formItem}>

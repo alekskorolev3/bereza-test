@@ -17,6 +17,7 @@ import AirSupplyForecast from "./Components/AirSupplyForecast";
 import SludgeStationForecast from "./Components/SludgeStationForecast";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Recommendations from "./Components/Recommendations";
+import SettingsGatesDistributorBowl from "./Components/SettingsGatesDistributorBowl";
 
 function App() {
 
@@ -58,6 +59,10 @@ function App() {
 
                 <Route path="/performanceInnerRecycle" element={
                     <ModulePerformanceInnerRecycle />
+                }/>
+
+                <Route path="/settingsGatesDistributorBowl" element={
+                    <SettingsGatesDistributorBowl/>
                 }/>
 
                 <Route path="/statistics" element={
